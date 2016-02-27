@@ -1,34 +1,43 @@
 //
-//  Block.h
+//  Block.cpp
 //  Solver
 //
 //  Created by Tom Stainer on 13/02/2016.
 //  Copyright (c) 2016 Tom Stainer. All rights reserved.
 //
 
-#ifndef Solver_Block_h
-#define Solver_Block_h
-
-#include <vector>
-
-#include "Types.h"
-#include "Cell.h"
+#include "Block.h"
 
 using namespace toast::utils;
 
 namespace toast { namespace logic
   {
-    class Block
+    Block::Block(const std::vector<std::shared_ptr<api::IRow>>& rows) : _rows(rows)
     {
-    public:
-      Block(const std::vector<Cell>& row);
-      ~Block();
+    }
+    
+    Block::~Block()
+    {
+    }
+    
+    void Block::SetValue(int n,int m, TNATURAL value)
+    {
+      _rows[n]->GetCell(m)->SetValue(value);
+    }
+    
+    void Block::Draw(std::ofstream& writer) const
+    {
+      for(auto row: _rows)
+        row->Draw(writer);
       
-    private:
-      std::vector<Cell> rows;
-    };
+      // Draw bottom
+      for(auto row: _rows)
+      {
+        writer << "********";
+      }
+      writer << "*\n";
+    }
     
   }
 }
 
-#endif

@@ -9,5 +9,24 @@
 #ifndef Solver_IDrawable_h
 #define Solver_IDrawable_h
 
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+namespace toast { namespace api
+  {
+    class IDrawable
+    {
+    public:
+      virtual ~IDrawable(){};
+      virtual void Draw( std::ofstream& writer ) const = 0;
+      
+    protected:
+      IDrawable(){};
+      
+    };
+    
+  }
+}
 
 #endif

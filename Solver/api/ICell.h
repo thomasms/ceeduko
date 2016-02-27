@@ -9,5 +9,27 @@
 #ifndef Solver_ICell_h
 #define Solver_ICell_h
 
+#include "Types.h"
+
+#include "IDrawable.h"
+
+using namespace toast::utils;
+
+namespace toast { namespace api
+  {
+    class ICell : public IDrawable
+    {
+    public:
+      virtual ~ICell(){};
+      virtual const TNATURAL GetValue() const = 0;
+      virtual void SetValue(const TNATURAL value) = 0;
+      
+    protected:
+      ICell(){};
+      
+    };
+    
+  }
+}
 
 #endif

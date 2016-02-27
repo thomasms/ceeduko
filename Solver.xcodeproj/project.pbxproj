@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3802151C80E8A7001613A8 /* Factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E3802141C80E8A7001613A8 /* Factory.cpp */; };
+		0E92ADEA1C80E01A00918C60 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E92ADE91C80E01A00918C60 /* Block.cpp */; };
 		0EA592751C6FBE9B008B859E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EA592741C6FBE9B008B859E /* main.cpp */; };
+		0EDCF01B1C80E12A0048ADFF /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCF01A1C80E12A0048ADFF /* Cell.cpp */; };
+		0EDCF01D1C80E4EE0048ADFF /* Row.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCF01C1C80E4EE0048ADFF /* Row.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E3802131C80E8A7001613A8 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Factory.h; path = factory/Factory.h; sourceTree = "<group>"; };
+		0E3802141C80E8A7001613A8 /* Factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Factory.cpp; path = factory/Factory.cpp; sourceTree = "<group>"; };
+		0E3802171C80F349001613A8 /* input.io */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = input.io; path = test/input.io; sourceTree = "<group>"; };
+		0E3802181C80F402001613A8 /* input_filled.io */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = input_filled.io; path = test/input_filled.io; sourceTree = "<group>"; };
+		0E3802191C80F543001613A8 /* IDrawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDrawable.h; path = api/IDrawable.h; sourceTree = "<group>"; };
+		0E92ADE91C80E01A00918C60 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Block.cpp; path = logic/Block.cpp; sourceTree = "<group>"; };
+		0E92ADEB1C80E07900918C60 /* IRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IRow.h; path = api/IRow.h; sourceTree = "<group>"; };
 		0EA592711C6FBE9B008B859E /* Solver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Solver; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA592741C6FBE9B008B859E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0EA5927E1C6FC00C008B859E /* Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = logic/Cell.h; sourceTree = "<group>"; };
+		0EA592801C6FC0B3008B859E /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Types.h; path = utils/Types.h; sourceTree = "<group>"; };
+		0EA592811C6FCD2D008B859E /* Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Block.h; path = logic/Block.h; sourceTree = "<group>"; };
+		0EA592821C6FCE1E008B859E /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Row.h; path = logic/Row.h; sourceTree = "<group>"; };
+		0EA592831C6FCF79008B859E /* ICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICell.h; path = api/ICell.h; sourceTree = "<group>"; };
+		0EDCF01A1C80E12A0048ADFF /* Cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cell.cpp; path = logic/Cell.cpp; sourceTree = "<group>"; };
+		0EDCF01C1C80E4EE0048ADFF /* Row.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Row.cpp; path = logic/Row.cpp; sourceTree = "<group>"; };
+		0EDCF01E1C80E71F0048ADFF /* IBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IBlock.h; path = api/IBlock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E3802161C80F341001613A8 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				0E3802181C80F402001613A8 /* input_filled.io */,
+				0E3802171C80F349001613A8 /* input.io */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
 		0EA592681C6FBE9B008B859E = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +85,63 @@
 		0EA592731C6FBE9B008B859E /* Solver */ = {
 			isa = PBXGroup;
 			children = (
+				0E3802161C80F341001613A8 /* test */,
+				0EDCF01F1C80E8310048ADFF /* factory */,
+				0EA5927F1C6FC024008B859E /* utils */,
+				0EA5927D1C6FBFC8008B859E /* logic */,
+				0EA5927C1C6FBFC2008B859E /* api */,
+				0EA5927B1C6FBFB9008B859E /* io */,
 				0EA592741C6FBE9B008B859E /* main.cpp */,
 			);
 			path = Solver;
+			sourceTree = "<group>";
+		};
+		0EA5927B1C6FBFB9008B859E /* io */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = io;
+			sourceTree = "<group>";
+		};
+		0EA5927C1C6FBFC2008B859E /* api */ = {
+			isa = PBXGroup;
+			children = (
+				0EA592831C6FCF79008B859E /* ICell.h */,
+				0E92ADEB1C80E07900918C60 /* IRow.h */,
+				0EDCF01E1C80E71F0048ADFF /* IBlock.h */,
+				0E3802191C80F543001613A8 /* IDrawable.h */,
+			);
+			name = api;
+			sourceTree = "<group>";
+		};
+		0EA5927D1C6FBFC8008B859E /* logic */ = {
+			isa = PBXGroup;
+			children = (
+				0EA592811C6FCD2D008B859E /* Block.h */,
+				0E92ADE91C80E01A00918C60 /* Block.cpp */,
+				0EA5927E1C6FC00C008B859E /* Cell.h */,
+				0EDCF01A1C80E12A0048ADFF /* Cell.cpp */,
+				0EA592821C6FCE1E008B859E /* Row.h */,
+				0EDCF01C1C80E4EE0048ADFF /* Row.cpp */,
+			);
+			name = logic;
+			sourceTree = "<group>";
+		};
+		0EA5927F1C6FC024008B859E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				0EA592801C6FC0B3008B859E /* Types.h */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		0EDCF01F1C80E8310048ADFF /* factory */ = {
+			isa = PBXGroup;
+			children = (
+				0E3802131C80E8A7001613A8 /* Factory.h */,
+				0E3802141C80E8A7001613A8 /* Factory.cpp */,
+			);
+			name = factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EDCF01D1C80E4EE0048ADFF /* Row.cpp in Sources */,
+				0EDCF01B1C80E12A0048ADFF /* Cell.cpp in Sources */,
+				0E3802151C80E8A7001613A8 /* Factory.cpp in Sources */,
 				0EA592751C6FBE9B008B859E /* main.cpp in Sources */,
+				0E92ADEA1C80E01A00918C60 /* Block.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +214,7 @@
 		0EA592761C6FBE9B008B859E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -158,17 +244,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(project_dir)/Solver/";
 			};
 			name = Debug;
 		};
 		0EA592771C6FBE9B008B859E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -193,9 +284,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(project_dir)/Solver/";
 			};
 			name = Release;
 		};
@@ -232,6 +328,7 @@
 				0EA5927A1C6FBE9B008B859E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
