@@ -1,20 +1,32 @@
 //
-//  types.h
+//  Types.h
 //  Solver
 //
-//  Created by Tom Stainer on 13/02/2016.
-//  Copyright (c) 2016 Tom Stainer. All rights reserved.
+//  Created by Tom Stainer on 04/05/2017.
+//  Copyright (c) 2017 Tom Stainer. All rights reserved.
 //
 
-#ifndef Solver_Types_h
-#define Solver_Types_h
+#ifndef TOAST_TYPES_H
+#define TOAST_TYPES_H
+
+#include <iomanip>
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace toast { namespace utils
-{
-  typedef double TVALUE;
-  typedef int TNATURAL;
-  
-}
+  {
+    using TVALUE = double;
+    using TNATURAL = int;
+    
+    template<class T>
+    using PTR = std::shared_ptr<T>;
+    
+    const auto SPACING = std::setw(20);
+    const char NEWLINE = '\n';
+    const char EMPTYCELL = '*';
+    const char SEPARATOR = ' ';
+  }
 }
 
-#endif
+#endif //TOAST_TYPES_H
