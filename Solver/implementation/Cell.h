@@ -48,6 +48,8 @@ namespace toast { namespace imp
       return _value != k_unset_value;
     }
     
+    void Validate() const override;
+    
     void Serialize(std::ostream& os) const override;
     void Deserialize(std::istream& is) override;
     

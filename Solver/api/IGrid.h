@@ -14,6 +14,7 @@
 #include "IClearable.h"
 #include "ICell.h"
 #include "ISerializable.h"
+#include "IValidatable.h"
 
 using namespace toast::utils;
 
@@ -26,7 +27,8 @@ namespace toast { namespace api
      *         number of rows and columns. A grid cannot be resized once constructed.
      */
     class IGrid : public IClearable,
-                  public ISerializable
+                  public ISerializable,
+                  public IValidatable
     {
     public:
       virtual ~IGrid(){};

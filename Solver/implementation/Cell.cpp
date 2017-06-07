@@ -20,7 +20,13 @@ namespace toast { namespace imp
     Cell::~Cell()
     {
     }
-        
+    
+    void Cell::Validate() const
+    {
+      if(HasValue() && GetValue() < 0)
+        throw GeneralException("Cell cannot have a negative value");
+    }
+    
     void Cell::Deserialize(std::istream& is)
     {
       char c;

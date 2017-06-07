@@ -39,6 +39,7 @@ namespace toast { namespace imp
       size_t GetNrOfRows() const override;
       size_t GetNrOfColumns() const override;
       
+      void Validate() const override;
       void Serialize(std::ostream& os) const override;
       void Deserialize(std::istream& is) override;
       

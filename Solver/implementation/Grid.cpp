@@ -65,6 +65,17 @@ namespace toast { namespace imp
       return nr_of_columns;
     }
     
+    void Grid::Validate() const
+    {
+      for(auto& row: _cells){
+        for(auto& cell: row){
+          cell->Validate();
+        }
+      }
+      
+      //ToDo: implement logic to check maximum value of cell is consistent with grid size
+    }
+    
     void Grid::Deserialize(std::istream& is)
     {
       size_t nr_of_rows = 0;
@@ -101,6 +112,9 @@ namespace toast { namespace imp
         for(PTR<api::ISerializable> cell: row){
           os << SPACING << cell << SEPARATOR;
         }
+        os << NEWLINE;
+        os << NEWLINE;
+        os << NEWLINE;
         os << NEWLINE;
       }
     }

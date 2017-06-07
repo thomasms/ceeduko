@@ -15,6 +15,7 @@
 
 #include "IClearable.h"
 #include "ISerializable.h"
+#include "IValidatable.h"
 
 using namespace toast::utils;
 
@@ -24,7 +25,8 @@ namespace toast { namespace api
      *        for the grid.
      */
     class ICell : public IClearable,
-                  public ISerializable
+                  public ISerializable,
+                  public IValidatable
     {
     public:
       virtual ~ICell(){};

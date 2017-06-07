@@ -16,28 +16,41 @@
 #include "FileIO.h"
 
 using namespace toast;
-const std::string filename = "//Users//tom//XCodeProjects//Solver//Solver//test.txt";
+const std::string filename_unsolved = "//Users//tom//XCodeProjects//Solver//Solver//test.txt";
+const std::string filename_solved = "//Users//tom//XCodeProjects//Solver//Solver//test_solved.txt";
 
 int main(int argc, const char * argv[])
 {
   try{
-//    size_t rows = 3;
-//    size_t columns = 5;
-//    auto grid = factory::GridFactory::CreateEmptyGrid(rows, columns);
+      // Create a test file
+//    size_t size = 9;
+//    auto grid = factory::GridFactory::CreateEmptySquareGrid(size);
 //                                                    
 //    // Set some test data
 //    (*grid)(0,0)->SetValue(5);
 //    (*grid)(1,0)->SetValue(2);
-//    (*grid)(rows-2,columns-1)->SetValue(9);
+//    (*grid)(7,5)->SetValue(9);
+//    (*grid)(4,8)->SetValue(5);
 //    
 //    // write/read to file
 //    PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
-//    io::WriteToFile(filename, serializable_object);
+//    io::WriteToFile(filename_unsolved, serializable_object);
 //    grid->Clear();
     
-    PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(factory::GridFactory::CreateEmptyGrid(0, 0));
-    io::ReadFromFile(filename, serializable_object);
-    std::cout << serializable_object << NEWLINE;
+    // Read in the grid from file
+    auto grid = factory::GridFactory::CreateEmptySquareGrid(0);
+    PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
+    io::ReadFromFile(filename_unsolved, serializable_object);
+    
+    // Validate the grid
+    grid->Validate();
+    
+    // Create a solver
+    // ToDo: PTR<api::ISolver> solver = factory::SolverFactory::CreateBruteForce(grid); solver->Run(); 
+    
+    // Write the solved grid to file
+    serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
+    io::WriteToFile(filename_solved, serializable_object);
   }
   catch(GeneralException& ex)
   {
