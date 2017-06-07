@@ -22,6 +22,10 @@ namespace toast { namespace api
     {
     public:
       virtual ~IClearable(){};
+      
+      /* @brief Clears the object data
+       *
+       */
       virtual void Clear() = 0;
     };
     

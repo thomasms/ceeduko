@@ -24,7 +24,18 @@ namespace toast { namespace api
     {
     public:
       virtual ~ISerializable(){};
+      
+      /* @brief Performs the serialization to the output stream
+       *
+       * @param[in] The output stream
+       */
       virtual void Serialize(std::ostream& stream) const = 0;
+      
+      /* @brief Performs the deserialization to the input stream
+       *
+       * @param[in] The input stream
+       */
+
       virtual void Deserialize(std::istream& stream) = 0;
     };
     
