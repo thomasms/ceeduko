@@ -53,6 +53,9 @@ namespace toast { namespace unittests
         REQUIRE(_grid != nullptr);
         REQUIRE(_grid->GetNrOfRows() == _nr_of_rows);
         REQUIRE(_grid->GetNrOfColumns() == _nr_of_columns);
+        
+        //validate grid data
+        REQUIRE_NOTHROW(_grid->Validate());
       }
       
       void ValidateDefault() override
@@ -65,7 +68,12 @@ namespace toast { namespace unittests
         auto values = CreateTestValues();
         SetValueCells(values);
         ValidateCells(values);
-        _grid->Clear();
+        
+        //validate grid data
+        REQUIRE_NOTHROW(_grid->Validate());
+        
+        REQUIRE_NOTHROW(_grid->Clear());
+        
         ValidateDefaultCells();
       }
       

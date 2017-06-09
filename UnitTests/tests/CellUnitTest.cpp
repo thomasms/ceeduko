@@ -13,6 +13,7 @@
 #include "ITester.h"
 
 #include "CellTester.h"
+#include "CellInvalidTester.h"
 
 using namespace toast::api;
 using namespace toast::imp;
@@ -37,5 +38,11 @@ namespace toast { namespace unittests {
     cell_tester->Validate();
   }
   
+  TEST_CASE( "Cell Invalid Value", "[ICell]" ) {
+    const PTR<ITester> cell_tester = std::make_shared<CellInvalidTester>(nullptr, &ICell::GetValue, &ICell::SetValue, 0,
+                                                                         "Cell must have a positive value for defined values");
+    cell_tester->Initialise();
+    cell_tester->Validate();
+  }
 }
 }

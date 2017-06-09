@@ -23,8 +23,8 @@ namespace toast { namespace imp
     
     void Cell::Validate() const
     {
-      if(HasValue() && GetValue() < 0)
-        throw GeneralException("Cell cannot have a negative value");
+      if(HasValue() && GetValue() <= 0)
+        throw GeneralException("Cell must have a positive value for defined values");
     }
     
     void Cell::Deserialize(std::istream& is)

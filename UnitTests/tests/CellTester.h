@@ -36,49 +36,54 @@ namespace toast { namespace unittests
       {
       }
       
-      ~CellTester()
+      virtual ~CellTester()
       {
       }
       
-      void InitialiseDefault() override
+      virtual void InitialiseDefault() override
       {
-        REQUIRE(_cell == nullptr);
+        REQUIRE_NOTHROW(_cell == nullptr);
         _cell = factory::CellFactory::CreateEmptyCell();
-        REQUIRE(_cell != nullptr);
+        REQUIRE_NOTHROW(_cell != nullptr);
       }
       
-      void Initialise() override
+      virtual void Initialise() override
       {
-        REQUIRE(_cell == nullptr);
+        REQUIRE_NOTHROW(_cell == nullptr);
         _cell = factory::CellFactory::CreateValueCell(_value);
-        REQUIRE(_cell != nullptr);
+        REQUIRE_NOTHROW(_cell != nullptr);
       }
       
-      void ValidateDefault() override
+      virtual void ValidateDefault() override
       {
-        REQUIRE(_cell != nullptr);
-        REQUIRE(_cell->HasValue() == false);
+        REQUIRE_NOTHROW(_cell != nullptr);
+        REQUIRE_NOTHROW(_cell->HasValue() == false);
+        //validate cell data
+        REQUIRE_NOTHROW(_cell->Validate());
       }
       
-      void Validate() override
+      virtual void Validate() override
       {
-        REQUIRE(_cell != nullptr);
+        REQUIRE_NOTHROW(_cell != nullptr);
+        
+        //validate cell data
+        REQUIRE_NOTHROW(_cell->Validate());
         
         // check getter
-        REQUIRE(_getter(*_cell) == _value);
-        REQUIRE(_cell->HasValue() == true);
+        REQUIRE_NOTHROW(_getter(*_cell) == _value);
+        REQUIRE_NOTHROW(_cell->HasValue() == true);
         
         // clear cell
-        _cell->Clear();
-        REQUIRE(_cell->HasValue() == false);
+        REQUIRE_NOTHROW(_cell->Clear());
+        REQUIRE_NOTHROW(_cell->HasValue() == false);
         
         // and set value again
         _setter(*_cell,_value);
-        REQUIRE(_getter(*_cell) == _value);
-        REQUIRE(_cell->HasValue() == true);
+        REQUIRE_NOTHROW(_getter(*_cell) == _value);
+        REQUIRE_NOTHROW(_cell->HasValue() == true);
       }
       
-    private:
+    protected:
       TNATURAL _value;
       PTR<api::ICell> _cell;
       std::function<TNATURAL(const api::ICell&)> _getter;

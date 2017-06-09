@@ -22,6 +22,7 @@ namespace toast { namespace unittests
       virtual void Initialise() = 0;
       virtual void ValidateDefault() = 0;
       virtual void Validate() = 0;
+      
     };
     
   }
