@@ -17,6 +17,7 @@
 #include "IGrid.h"
 #include "Grid.h"
 #include "GridFactory.h"
+#include "GridOperation.h"
 
 #include "CellTester.h"
 #include "ITester.h"
@@ -89,37 +90,37 @@ namespace toast { namespace unittests
       
       void SetValueCells(const std::vector<TNATURAL>& values){
         size_t i = 0;
-        for(size_t r=0;r<_nr_of_rows;++r){
-          for(size_t c=0;c<_nr_of_columns;++c){
-            (*_grid)(r,c)->SetValue(values[i++]);
-          }
-        }
+        auto func = [&](size_t r, size_t c){
+          (*_grid)(r,c)->SetValue(values[i++]);
+        };
+        
+        (imp::GridOperation(_grid))(func);
       }
       
       void ValidateCells(const std::vector<TNATURAL>& values){
         size_t i = 0;
-        for(size_t r=0;r<_nr_of_rows;++r){
-          for(size_t c=0;c<_nr_of_columns;++c){
-            auto cell = (*_grid)(r,c);
-            _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, values[i++]);
-            _cell_tester->Validate();
-          }
-        }
+        auto func = [&](size_t r, size_t c){
+          auto cell = (*_grid)(r,c);
+          _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, values[i++]);
+          _cell_tester->Validate();
+        };
+        
+        (imp::GridOperation(_grid))(func);
       }
       
       void ValidateDefaultCells(){
-        for(size_t r=0;r<_nr_of_rows;++r){
-          for(size_t c=0;c<_nr_of_columns;++c){
-            auto cell = (*_grid)(r,c);
-            _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, 0);
-            _cell_tester->ValidateDefault();
-          }
-        }
+        auto func = [&](size_t r, size_t c){
+          auto cell = (*_grid)(r,c);
+          _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, 0);
+          _cell_tester->ValidateDefault();
+        };
+        
+        (imp::GridOperation(_grid))(func);
       }
       
     protected:
       TNATURAL _value;
-      PTR<ITester>_cell_tester;
+      PTR<ITester> _cell_tester;
       PTR<api::IGrid> _grid;
       size_t _nr_of_rows;
       size_t _nr_of_columns;

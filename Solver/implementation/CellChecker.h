@@ -16,6 +16,8 @@
 #include "ICell.h"
 #include "IGrid.h"
 
+#include "GridOperation.h"
+
 using namespace toast::utils;
 
 namespace toast { namespace imp
@@ -29,9 +31,9 @@ namespace toast { namespace imp
       bool IsOk(size_t row_index, size_t column_index, TNATURAL value) const;
       
     private:
-      std::vector<TNATURAL> GetValidSet(size_t row_index, size_t column_index) const;
-      std::vector<TNATURAL> GetRowSet(size_t row_index) const;
-      std::vector<TNATURAL> GetColumnSet(size_t column_index) const;
+      bool IsInRow(size_t row_index, TNATURAL value) const;
+      bool IsInColumn(size_t column_index, TNATURAL value) const;      
+      bool CheckCell(PTR<api::ICell>& cell, TNATURAL value) const;
       
     private:
       PTR<api::IGrid>& _grid;

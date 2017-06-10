@@ -42,11 +42,11 @@ namespace toast { namespace unittests
       
       virtual void Validate() override
       {
-        REQUIRE_NOTHROW(_cell != nullptr);
+        REQUIRE(_cell != nullptr);
         
         // check getter
-        REQUIRE_NOTHROW(_getter(*_cell) == _value);
-        REQUIRE_NOTHROW(_cell->HasValue() == true);
+        REQUIRE(_getter(*_cell) == _value);
+        REQUIRE(_cell->HasValue() == true);
         
         //validate cell data
         std::function<void()> validate_func = std::bind(&api::ICell::Validate, _cell);

@@ -9,6 +9,8 @@
 #ifndef TOAST_IMP_BACKTRACKING_SOLVER_H
 #define TOAST_IMP_BACKTRACKING_SOLVER_H
 
+#include "CellChecker.h"
+
 #include "ISolver.h"
 
 namespace toast { namespace imp

@@ -20,7 +20,9 @@ namespace toast { namespace imp
     
     bool BacktrackingSolver::Solve(PTR<api::IGrid>& grid)
     {
-      //ToDo: implement
+      CellChecker checker(grid);
+      
+      
       return false;
     }
     

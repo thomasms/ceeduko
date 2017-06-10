@@ -42,45 +42,45 @@ namespace toast { namespace unittests
       
       virtual void InitialiseDefault() override
       {
-        REQUIRE_NOTHROW(_cell == nullptr);
+        REQUIRE(_cell == nullptr);
         _cell = factory::CellFactory::CreateEmptyCell();
-        REQUIRE_NOTHROW(_cell != nullptr);
+        REQUIRE(_cell != nullptr);
       }
       
       virtual void Initialise() override
       {
-        REQUIRE_NOTHROW(_cell == nullptr);
+        REQUIRE(_cell == nullptr);
         _cell = factory::CellFactory::CreateValueCell(_value);
-        REQUIRE_NOTHROW(_cell != nullptr);
+        REQUIRE(_cell != nullptr);
       }
       
       virtual void ValidateDefault() override
       {
-        REQUIRE_NOTHROW(_cell != nullptr);
-        REQUIRE_NOTHROW(_cell->HasValue() == false);
+        REQUIRE(_cell != nullptr);
+        REQUIRE(_cell->HasValue() == false);
         //validate cell data
         REQUIRE_NOTHROW(_cell->Validate());
       }
       
       virtual void Validate() override
       {
-        REQUIRE_NOTHROW(_cell != nullptr);
+        REQUIRE(_cell != nullptr);
         
         //validate cell data
         REQUIRE_NOTHROW(_cell->Validate());
         
         // check getter
-        REQUIRE_NOTHROW(_getter(*_cell) == _value);
-        REQUIRE_NOTHROW(_cell->HasValue() == true);
+        REQUIRE(_getter(*_cell) == _value);
+        REQUIRE(_cell->HasValue() == true);
         
         // clear cell
         REQUIRE_NOTHROW(_cell->Clear());
-        REQUIRE_NOTHROW(_cell->HasValue() == false);
+        REQUIRE(_cell->HasValue() == false);
         
         // and set value again
         _setter(*_cell,_value);
-        REQUIRE_NOTHROW(_getter(*_cell) == _value);
-        REQUIRE_NOTHROW(_cell->HasValue() == true);
+        REQUIRE(_getter(*_cell) == _value);
+        REQUIRE(_cell->HasValue() == true);
       }
       
     protected:

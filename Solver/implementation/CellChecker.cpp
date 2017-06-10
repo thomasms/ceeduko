@@ -23,30 +23,39 @@ namespace toast { namespace imp
   
     bool CellChecker::IsOk(size_t row_index, size_t column_index, TNATURAL value) const
     {
-      //ToDo: implement
+      bool in_row = IsInRow(row_index, value);
+      bool in_column = IsInColumn(column_index, value);
+      return (!in_row && !in_column);
+    }
+    
+    
+    bool CellChecker::IsInRow(size_t row_index, TNATURAL value) const
+    {
+      for(int c=0;c<_grid->GetNrOfColumns();++c){
+        auto cell = (*_grid)(row_index, c);
+        if(CheckCell(cell,value))
+          return true;
+      }
       return false;
     }
     
-    
-    std::vector<TNATURAL> CellChecker::GetValidSet(size_t row_index, size_t column_index) const
+    bool CellChecker::IsInColumn(size_t column_index, TNATURAL value) const
     {
-      //ToDo: implement
-      return std::vector<TNATURAL>();
+      for(int r=0;r<_grid->GetNrOfRows();++r){
+        auto cell = (*_grid)(r, column_index);
+        if(CheckCell(cell,value))
+          return true;
+      }
+      return false;
     }
     
-    std::vector<TNATURAL> CellChecker::GetRowSet(size_t row_index) const
-    {
-      //ToDo: implement
-      return std::vector<TNATURAL>();
-      
+    bool CellChecker::CheckCell(PTR<api::ICell>& cell, TNATURAL value) const{
+      if(cell->HasValue() && (*cell)() == value ){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
-    
-    std::vector<TNATURAL> CellChecker::GetColumnSet(size_t column_index) const
-    {
-      //ToDo: implement
-      return std::vector<TNATURAL>();
-      
-    }
-  
   }
 }
