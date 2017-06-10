@@ -15,6 +15,7 @@
 
 #include "IGrid.h"
 #include "CellChecker.h"
+#include "GridOperation.h"
 
 #include "ITester.h"
 
@@ -58,6 +59,15 @@ namespace toast { namespace unittests
       {
         REQUIRE(_grid != nullptr);
         REQUIRE_NOTHROW(_grid->Validate());
+        
+        // Check that the grid has been correctly setup - i.e. check existing values are ok.
+        imp::CellChecker checker(_grid);
+        auto func = [&](size_t r, size_t c){
+          auto cell = (*_grid)(r,c);
+          REQUIRE(checker.IsOk(r,c,(*cell)()) == true);
+        };
+        
+        (imp::GridOperation(_grid))(func);
       }
       
     private:

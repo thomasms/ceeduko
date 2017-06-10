@@ -67,13 +67,36 @@ namespace toast { namespace imp
     
     void Grid::Validate() const
     {
+      //check the grid dimensions - for this solver it must be square and of square size i.e. 4, 9, 16, etc..
+      if(GetNrOfRows() != GetNrOfColumns())
+        throw GeneralException("Only supports square grids");
+      
+      auto sub_square_size = sqrt(static_cast<TVALUE>(GetNrOfRows()));
+      
+      if(ceil(sub_square_size) != sub_square_size)
+        throw GeneralException("Must be of square number size, i.e. 4, 9, 16");
+      
       for(auto& row: _cells){
         for(auto& cell: row){
           cell->Validate();
+          
+          /*
+          // ToDo: Fix unit tests to ensure this is valid
+          if((cell->HasValue()) && ((*cell)() > GetMaxValue()))
+            throw GeneralException("Values cannot exceed the grid size");
+           */
         }
       }
-      
-      //ToDo: implement logic to check maximum value of cell is consistent with grid size
+    }
+    
+    TNATURAL Grid::GetMaxValue() const
+    {
+      if(GetNrOfRows() > GetNrOfColumns()){
+        return static_cast<TNATURAL>(GetNrOfRows());
+      }
+      else{
+        return static_cast<TNATURAL>(GetNrOfColumns());
+      }
     }
     
     void Grid::Deserialize(std::istream& is)

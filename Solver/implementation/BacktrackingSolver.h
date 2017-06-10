@@ -9,7 +9,10 @@
 #ifndef TOAST_IMP_BACKTRACKING_SOLVER_H
 #define TOAST_IMP_BACKTRACKING_SOLVER_H
 
+#include <cmath>
+
 #include "CellChecker.h"
+#include "GridOperation.h"
 
 #include "ISolver.h"
 
@@ -21,7 +24,12 @@ namespace toast { namespace imp
       BacktrackingSolver();
       ~BacktrackingSolver();
       
+      // Returns false if no solution exists
       virtual bool Solve(PTR<api::IGrid>& grid) override;
+      
+    private:
+      bool VerifyGrid(PTR<api::IGrid>& grid) const;
+      bool DoLoop();
     };
   }
 }

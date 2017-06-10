@@ -20,24 +20,47 @@ using namespace toast::imp;
 
 namespace toast { namespace unittests {
   
-  TEST_CASE( "Cell Checker Sunny", "[CellChecker]" ) {
-    const auto grid = GridTestFactory::CreatePartialFilledSquareNineGrid();
-    const size_t row_index = 8;
-    const size_t column_index = 8;
-    const TNATURAL test_value = 6;
+  TEST_CASE( "Cell Checker Sunny Empty 9X9", "[CellChecker]" ) {
+    const auto grid = GridTestFactory::CreateEmptySquareNineGrid();
     
-    const PTR<ITwoCaseTester> tester = std::make_shared<CellCheckerTester>(grid, row_index, column_index, test_value );
-    tester->ValidateSunny();
+    std::vector<PTR<ITwoCaseTester>> testers;
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 1, 2, 5 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 4, 5, 8 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 1, 2, 2 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 1, 2, 4 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 7, 5 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 6, 4, 5 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 9 ));
+    
+    for(auto& tester: testers)
+      tester->ValidateSunny();
   }
   
-  TEST_CASE( "Cell Checker Rainy", "[CellChecker]" ) {
+  TEST_CASE( "Cell Checker Sunny Partial 9X9", "[CellChecker]" ) {
     const auto grid = GridTestFactory::CreatePartialFilledSquareNineGrid();
-    const size_t row_index = 8;
-    const size_t column_index = 8;
-    const TNATURAL test_value = 5;
     
-    const PTR<ITwoCaseTester> tester = std::make_shared<CellCheckerTester>(grid, row_index, column_index, test_value );
-    tester->ValidateRainy();
+    std::vector<PTR<ITwoCaseTester>> testers;
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 1 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 2 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 4 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 6 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 9 ));
+    
+    for(auto& tester: testers)
+      tester->ValidateSunny();
+  }
+  
+  TEST_CASE( "Cell Checker Rainy Partial 9X9", "[CellChecker]" ) {
+    const auto grid = GridTestFactory::CreatePartialFilledSquareNineGrid();
+    
+    std::vector<PTR<ITwoCaseTester>> testers;
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 3 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 5 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 7 ));
+    testers.push_back(std::make_shared<CellCheckerTester>(grid, 8, 8, 8 ));
+    
+    for(auto& tester: testers)
+      tester->ValidateRainy();
   }
   
   

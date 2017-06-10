@@ -9,6 +9,7 @@
 #ifndef TOAST_IMP_CELL_CHECKER_H
 #define TOAST_IMP_CELL_CHECKER_H
 
+#include <cmath>
 #include <vector>
 
 #include "Types.h"
@@ -31,8 +32,9 @@ namespace toast { namespace imp
       bool IsOk(size_t row_index, size_t column_index, TNATURAL value) const;
       
     private:
-      bool IsInRow(size_t row_index, TNATURAL value) const;
-      bool IsInColumn(size_t column_index, TNATURAL value) const;      
+      bool IsInRow(size_t row_index, size_t column_index, TNATURAL value) const;
+      bool IsInColumn(size_t row_index, size_t column_index, TNATURAL value) const;
+      bool IsInSubGrid(size_t row_index, size_t column_index, TNATURAL value) const;
       bool CheckCell(PTR<api::ICell>& cell, TNATURAL value) const;
       
     private:

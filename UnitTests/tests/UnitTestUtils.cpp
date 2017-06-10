@@ -13,6 +13,37 @@
 namespace toast { namespace unittests
   {
     
+    /*
+     
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     * * * * * * * * *
+     
+     */
+    const PTR<api::IGrid> GridTestFactory::CreateEmptySquareNineGrid()
+    {
+      return factory::GridFactory::CreateEmptySquareGrid(9);
+    }
+    
+    /*
+     
+     5 * * * * 1 * * *
+     * * * * * * * * *
+     4 * * * * * * * *
+     * * * 2 * * * * 5
+     * * * * * * 6 * 7
+     * 7 * * * 9 * * *
+     * * 8 * * * * * *
+     * * * * * * * 8 *
+     * * 3 * * * * * *
+     
+     */    
     const PTR<api::IGrid> GridTestFactory::CreatePartialFilledSquareNineGrid()
     {
       auto grid = factory::GridFactory::CreateEmptySquareGrid(9);
@@ -21,7 +52,7 @@ namespace toast { namespace unittests
       (*grid)(2,0)->SetValue(4);
       (*grid)(3,3)->SetValue(2);
       (*grid)(3,8)->SetValue(5);
-      (*grid)(4,6)->SetValue(5);
+      (*grid)(4,6)->SetValue(6);
       (*grid)(4,8)->SetValue(7);
       (*grid)(5,1)->SetValue(7);
       (*grid)(5,5)->SetValue(9);

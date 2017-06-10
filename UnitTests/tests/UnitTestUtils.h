@@ -20,6 +20,8 @@ namespace toast { namespace unittests
     class GridTestFactory
     {
     public:
+      static const PTR<api::IGrid> CreateEmptySquareNineGrid();
+      
       static const PTR<api::IGrid> CreatePartialFilledSquareNineGrid();
     };
   }

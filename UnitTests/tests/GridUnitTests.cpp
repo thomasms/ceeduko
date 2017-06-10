@@ -17,7 +17,7 @@ using namespace toast::imp;
 namespace toast { namespace unittests {
   
   TEST_CASE( "Grid Square Default", "[IGrid]" ) {
-    const PTR<ITester> tester = std::make_shared<SquareGridTester>(3,4);
+    const PTR<ITester> tester = std::make_shared<SquareGridTester>(4,4);
     tester->InitialiseDefault();
     tester->ValidateDefault();
   }
@@ -28,6 +28,8 @@ namespace toast { namespace unittests {
     tester->Validate();
   }
   
+  // Currently no support for rectangular grids
+  /*
   TEST_CASE( "Grid General Default", "[IGrid]" ) {
     const PTR<ITester> tester = std::make_shared<GeneralGridTester>(9,3,5);
     tester->InitialiseDefault();
@@ -39,6 +41,6 @@ namespace toast { namespace unittests {
     tester->Initialise();
     tester->Validate();
   }
-  
+  */
 }
 }

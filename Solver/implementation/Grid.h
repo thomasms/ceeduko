@@ -10,6 +10,7 @@
 #define TOAST_IMP_GRID_H
 
 #include <assert.h>
+#include <cmath>
 #include <vector>
 
 #include "Defs.h"
@@ -17,6 +18,7 @@
 #include "GeneralException.h"
 
 #include "CellFactory.h"
+#include "CellChecker.h"
 
 #include "ICell.h"
 #include "IGrid.h"
@@ -45,6 +47,7 @@ namespace toast { namespace imp
       
     private:
       void CreateGrid(size_t nr_of_rows, size_t nr_of_columns);
+      TNATURAL GetMaxValue() const;
       
     private:
       std::vector< std::vector< PTR<api::ICell> > > _cells;
