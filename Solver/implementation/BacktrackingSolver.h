@@ -10,9 +10,11 @@
 #define TOAST_IMP_BACKTRACKING_SOLVER_H
 
 #include <cmath>
+#include <vector>
 
 #include "CellChecker.h"
 #include "GridOperation.h"
+#include "GeneralException.h"
 
 #include "ISolver.h"
 
@@ -29,7 +31,11 @@ namespace toast { namespace imp
       
     private:
       bool VerifyGrid(PTR<api::IGrid>& grid) const;
-      bool DoLoop();
+      bool Loop(PTR<api::IGrid>& grid);
+      bool Initialise(PTR<api::IGrid>& grid);
+      
+    private:
+      std::vector< PTR<api::ICell> > _empty_cells;
     };
   }
 }

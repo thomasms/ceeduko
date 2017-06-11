@@ -29,6 +29,7 @@ namespace toast { namespace imp
       CellChecker(PTR<api::IGrid>& grid);
       ~CellChecker();
       
+      bool IsOk(PTR<api::ICell>& cell, TNATURAL value) const;
       bool IsOk(size_t row_index, size_t column_index, TNATURAL value) const;
       
     private:
@@ -36,6 +37,7 @@ namespace toast { namespace imp
       bool IsInColumn(size_t row_index, size_t column_index, TNATURAL value) const;
       bool IsInSubGrid(size_t row_index, size_t column_index, TNATURAL value) const;
       bool CheckCell(PTR<api::ICell>& cell, TNATURAL value) const;
+      std::pair<size_t,size_t> FindCellLocation(PTR<api::ICell>& cell) const;
       
     private:
       PTR<api::IGrid>& _grid;

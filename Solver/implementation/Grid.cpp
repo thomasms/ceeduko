@@ -129,15 +129,12 @@ namespace toast { namespace imp
     
     void Grid::Serialize(std::ostream& os) const
     {
-      os << SPACING << GetNrOfRows() << SEPARATOR << SPACING << GetNrOfColumns() << NEWLINE;
+      os << GetNrOfRows() << SEPARATOR << GetNrOfColumns() << NEWLINE;
       
       for(auto& row: _cells){
         for(PTR<api::ISerializable> cell: row){
-          os << SPACING << cell << SEPARATOR;
+          os << cell << SEPARATOR;
         }
-        os << NEWLINE;
-        os << NEWLINE;
-        os << NEWLINE;
         os << NEWLINE;
       }
     }

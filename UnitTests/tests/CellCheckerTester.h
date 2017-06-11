@@ -46,12 +46,20 @@ namespace toast { namespace unittests
       {
         ValidateGrid();
         REQUIRE(imp::CellChecker(_grid).IsOk(_row_index, _column_index, _value) == true);
+        
+        // also try with cell method
+        auto cell = (*_grid)(_row_index,_column_index);
+        REQUIRE(imp::CellChecker(_grid).IsOk(cell, _value) == true);
       }
       
       virtual void ValidateRainy() override
       {
         ValidateGrid();
         REQUIRE(imp::CellChecker(_grid).IsOk(_row_index, _column_index, _value) == false);
+        
+        // also try with cell method
+        auto cell = (*_grid)(_row_index,_column_index);
+        REQUIRE(imp::CellChecker(_grid).IsOk(cell, _value) == false);
       }
       
     private:

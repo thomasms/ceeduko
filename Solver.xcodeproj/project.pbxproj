@@ -22,6 +22,14 @@
 		E26BA3E11EBF565F00CC5906 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E26BA3DF1EBF565F00CC5906 /* Cell.cpp */; };
 		E26BA3E41EBF679600CC5906 /* Serialization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E26BA3E31EBF679600CC5906 /* Serialization.cpp */; };
 		E26BA3E51EBF679600CC5906 /* Serialization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E26BA3E31EBF679600CC5906 /* Serialization.cpp */; };
+		E27091641EEC2DD400C9DC8F /* CellCheckerUnitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27091631EEC2DD400C9DC8F /* CellCheckerUnitTests.cpp */; };
+		E27091671EEC2E7800C9DC8F /* UnitTestUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27091651EEC2E7800C9DC8F /* UnitTestUtils.cpp */; };
+		E2D91EDD1EEB3E0F005CCCFC /* BacktrackingSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D91EDC1EEB3E0F005CCCFC /* BacktrackingSolver.cpp */; };
+		E2D91EDE1EEB3E0F005CCCFC /* BacktrackingSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D91EDC1EEB3E0F005CCCFC /* BacktrackingSolver.cpp */; };
+		E2D91EE11EEB3F2D005CCCFC /* CellChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D91EDF1EEB3F2D005CCCFC /* CellChecker.cpp */; };
+		E2D91EE21EEB3F2D005CCCFC /* CellChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D91EDF1EEB3F2D005CCCFC /* CellChecker.cpp */; };
+		E2E81F421EEDD040005C3602 /* SolverFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E81F401EEDD040005C3602 /* SolverFactory.cpp */; };
+		E2E81F431EEDD040005C3602 /* SolverFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E81F401EEDD040005C3602 /* SolverFactory.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +66,7 @@
 		E207A7C71EBBBA3D00530779 /* BasicAccessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BasicAccessor.h; path = implementation/BasicAccessor.h; sourceTree = "<group>"; };
 		E207A7C81EBBBC5300530779 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = implementation/Cell.h; sourceTree = "<group>"; };
 		E207A7C91EBBC25800530779 /* CellUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CellUnitTest.cpp; sourceTree = "<group>"; };
+		E20C412C1EE7FF0700B7FAD0 /* IValidatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IValidatable.h; path = api/IValidatable.h; sourceTree = "<group>"; };
 		E25198D31EBE687000CA431E /* ITester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITester.h; sourceTree = "<group>"; };
 		E25198D41EBE692C00CA431E /* CellTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellTester.h; sourceTree = "<group>"; };
 		E2531AC51EBCA500000BF383 /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
@@ -81,6 +90,27 @@
 		E26BA3DF1EBF565F00CC5906 /* Cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cell.cpp; path = implementation/Cell.cpp; sourceTree = "<group>"; };
 		E26BA3E21EBF64A000CC5906 /* Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serialization.h; path = implementation/Serialization.h; sourceTree = "<group>"; };
 		E26BA3E31EBF679600CC5906 /* Serialization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Serialization.cpp; path = implementation/Serialization.cpp; sourceTree = "<group>"; };
+		E27091611EEC299900C9DC8F /* CellCheckerTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellCheckerTester.h; sourceTree = "<group>"; };
+		E27091621EEC2BFB00C9DC8F /* ITwoCaseTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITwoCaseTester.h; sourceTree = "<group>"; };
+		E27091631EEC2DD400C9DC8F /* CellCheckerUnitTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CellCheckerUnitTests.cpp; sourceTree = "<group>"; };
+		E27091651EEC2E7800C9DC8F /* UnitTestUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitTestUtils.cpp; sourceTree = "<group>"; };
+		E27091661EEC2E7800C9DC8F /* UnitTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestUtils.h; sourceTree = "<group>"; };
+		E27091691EEC383300C9DC8F /* GridOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridOperation.h; path = implementation/GridOperation.h; sourceTree = "<group>"; };
+		E2D91ED81EEB3025005CCCFC /* ISolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISolver.h; path = api/ISolver.h; sourceTree = "<group>"; };
+		E2D91ED91EEB31AB005CCCFC /* Assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assertions.h; sourceTree = "<group>"; };
+		E2D91EDA1EEB37AC005CCCFC /* CellInvalidTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellInvalidTester.h; sourceTree = "<group>"; };
+		E2D91EDB1EEB3D59005CCCFC /* BacktrackingSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BacktrackingSolver.h; path = implementation/BacktrackingSolver.h; sourceTree = "<group>"; };
+		E2D91EDC1EEB3E0F005CCCFC /* BacktrackingSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BacktrackingSolver.cpp; path = implementation/BacktrackingSolver.cpp; sourceTree = "<group>"; };
+		E2D91EDF1EEB3F2D005CCCFC /* CellChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CellChecker.cpp; path = implementation/CellChecker.cpp; sourceTree = "<group>"; };
+		E2D91EE01EEB3F2D005CCCFC /* CellChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellChecker.h; path = implementation/CellChecker.h; sourceTree = "<group>"; };
+		E2E81F3C1EEDCF2F005C3602 /* 9x9_partial_board.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_partial_board.txt; sourceTree = "<group>"; };
+		E2E81F3D1EEDCF36005C3602 /* 9x9_empty_board.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_empty_board.txt; sourceTree = "<group>"; };
+		E2E81F3E1EEDCF92005C3602 /* 9x9_partial_board_solved.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_partial_board_solved.txt; sourceTree = "<group>"; };
+		E2E81F3F1EEDCFB1005C3602 /* 9x9_empty_board_solved.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_empty_board_solved.txt; sourceTree = "<group>"; };
+		E2E81F401EEDD040005C3602 /* SolverFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SolverFactory.cpp; path = factory/SolverFactory.cpp; sourceTree = "<group>"; };
+		E2E81F411EEDD040005C3602 /* SolverFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SolverFactory.h; path = factory/SolverFactory.h; sourceTree = "<group>"; };
+		E2E81F441EEDD131005C3602 /* 9x9_unsolvable_board.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_unsolvable_board.txt; sourceTree = "<group>"; };
+		E2E81F451EEDD158005C3602 /* 9x9_unsolvable_board_solved.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9x9_unsolvable_board_solved.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +138,18 @@
 				E26BA3DA1EBF406700CC5906 /* files */,
 				E2531AD41EBCA9CA000BF383 /* BasicAccessorUnitTests.cpp */,
 				E207A7C91EBBC25800530779 /* CellUnitTest.cpp */,
+				E27091631EEC2DD400C9DC8F /* CellCheckerUnitTests.cpp */,
 				E2576C561EBD109C00520B5A /* GridUnitTests.cpp */,
+				E27091651EEC2E7800C9DC8F /* UnitTestUtils.cpp */,
 				E25198D31EBE687000CA431E /* ITester.h */,
+				E27091611EEC299900C9DC8F /* CellCheckerTester.h */,
 				E25198D41EBE692C00CA431E /* CellTester.h */,
+				E2D91EDA1EEB37AC005CCCFC /* CellInvalidTester.h */,
 				E26BA3D81EBF26DE00CC5906 /* SquareGridTester.h */,
 				E26BA3D91EBF336800CC5906 /* GeneralGridTester.h */,
+				E2D91ED91EEB31AB005CCCFC /* Assertions.h */,
+				E27091621EEC2BFB00C9DC8F /* ITwoCaseTester.h */,
+				E27091661EEC2E7800C9DC8F /* UnitTestUtils.h */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -138,6 +175,12 @@
 		0EA592731C6FBE9B008B859E /* Solver */ = {
 			isa = PBXGroup;
 			children = (
+				E2E81F451EEDD158005C3602 /* 9x9_unsolvable_board_solved.txt */,
+				E2E81F441EEDD131005C3602 /* 9x9_unsolvable_board.txt */,
+				E2E81F3F1EEDCFB1005C3602 /* 9x9_empty_board_solved.txt */,
+				E2E81F3E1EEDCF92005C3602 /* 9x9_partial_board_solved.txt */,
+				E2E81F3D1EEDCF36005C3602 /* 9x9_empty_board.txt */,
+				E2E81F3C1EEDCF2F005C3602 /* 9x9_partial_board.txt */,
 				E207A7C61EBBB97F00530779 /* implementation */,
 				0EDCF01F1C80E8310048ADFF /* factory */,
 				0EA5927F1C6FC024008B859E /* utils */,
@@ -163,6 +206,8 @@
 				E207A7C51EBBAD6F00530779 /* IGrid.h */,
 				E265F09C1EBDDAFB0097AA9A /* IClearable.h */,
 				E26BA3DE1EBF537E00CC5906 /* ISerializable.h */,
+				E20C412C1EE7FF0700B7FAD0 /* IValidatable.h */,
+				E2D91ED81EEB3025005CCCFC /* ISolver.h */,
 			);
 			name = api;
 			sourceTree = "<group>";
@@ -184,6 +229,8 @@
 				0E3802141C80E8A7001613A8 /* CellFactory.cpp */,
 				E2576C591EBD10E600520B5A /* GridFactory.h */,
 				E2576C581EBD10E600520B5A /* GridFactory.cpp */,
+				E2E81F401EEDD040005C3602 /* SolverFactory.cpp */,
+				E2E81F411EEDD040005C3602 /* SolverFactory.h */,
 			);
 			name = factory;
 			sourceTree = "<group>";
@@ -198,6 +245,11 @@
 				E2531AD61EBCAF42000BF383 /* Grid.cpp */,
 				E26BA3E21EBF64A000CC5906 /* Serialization.h */,
 				E26BA3E31EBF679600CC5906 /* Serialization.cpp */,
+				E2D91EDB1EEB3D59005CCCFC /* BacktrackingSolver.h */,
+				E2D91EDC1EEB3E0F005CCCFC /* BacktrackingSolver.cpp */,
+				E2D91EDF1EEB3F2D005CCCFC /* CellChecker.cpp */,
+				E2D91EE01EEB3F2D005CCCFC /* CellChecker.h */,
+				E27091691EEC383300C9DC8F /* GridOperation.h */,
 			);
 			name = implementation;
 			sourceTree = "<group>";
@@ -302,9 +354,12 @@
 			files = (
 				E26BA3E41EBF679600CC5906 /* Serialization.cpp in Sources */,
 				E2531AD81EBCAF42000BF383 /* Grid.cpp in Sources */,
+				E2E81F421EEDD040005C3602 /* SolverFactory.cpp in Sources */,
 				0E3802151C80E8A7001613A8 /* CellFactory.cpp in Sources */,
 				E2576C5A1EBD10E600520B5A /* GridFactory.cpp in Sources */,
 				0EA592751C6FBE9B008B859E /* main.cpp in Sources */,
+				E2D91EE11EEB3F2D005CCCFC /* CellChecker.cpp in Sources */,
+				E2D91EDD1EEB3E0F005CCCFC /* BacktrackingSolver.cpp in Sources */,
 				E26BA3E01EBF565F00CC5906 /* Cell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,10 +372,15 @@
 				E26BA3E11EBF565F00CC5906 /* Cell.cpp in Sources */,
 				E2576C5B1EBD10E600520B5A /* GridFactory.cpp in Sources */,
 				E26BA3E51EBF679600CC5906 /* Serialization.cpp in Sources */,
+				E2D91EE21EEB3F2D005CCCFC /* CellChecker.cpp in Sources */,
+				E27091641EEC2DD400C9DC8F /* CellCheckerUnitTests.cpp in Sources */,
+				E2D91EDE1EEB3E0F005CCCFC /* BacktrackingSolver.cpp in Sources */,
 				E2531AD31EBCA679000BF383 /* CellFactory.cpp in Sources */,
 				E2531AD21EBCA668000BF383 /* CellUnitTest.cpp in Sources */,
 				E2576C571EBD109C00520B5A /* GridUnitTests.cpp in Sources */,
 				E2531AD51EBCA9CA000BF383 /* BasicAccessorUnitTests.cpp in Sources */,
+				E2E81F431EEDD040005C3602 /* SolverFactory.cpp in Sources */,
+				E27091671EEC2E7800C9DC8F /* UnitTestUtils.cpp in Sources */,
 				E2531AD91EBCAF42000BF383 /* Grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

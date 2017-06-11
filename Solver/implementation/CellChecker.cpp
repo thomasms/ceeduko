@@ -22,7 +22,13 @@ namespace toast { namespace imp
     CellChecker::~CellChecker()
     {
     }
-  
+    
+    bool CellChecker::IsOk(PTR<api::ICell>& cell, TNATURAL value) const
+    {
+      auto r_and_c = FindCellLocation(cell);
+      return IsOk(r_and_c.first,r_and_c.second,value);
+    }
+    
     bool CellChecker::IsOk(size_t row_index, size_t column_index, TNATURAL value) const
     {
       // If value is undefined 
@@ -94,5 +100,21 @@ namespace toast { namespace imp
         return false;
       }
     }
+    
+    std::pair<size_t,size_t> CellChecker::FindCellLocation(PTR<api::ICell>& cell) const
+    {
+      std::pair<size_t,size_t> r_and_c;
+      auto func = [&](size_t r, size_t c){
+        PTR<api::ICell> cell_rc = (*_grid)(r,c);
+        if(cell_rc == cell){
+          r_and_c = std::make_pair(r, c);
+        }
+      };
+      
+      (imp::GridOperation(_grid))(func);
+      
+      return r_and_c;
+    }
+    
   }
 }
