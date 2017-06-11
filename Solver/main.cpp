@@ -20,7 +20,7 @@
 using namespace toast;
 const std::string dir = "//Users//tom//XCodeProjects//Solver//Solver//";
 const std::string ext = ".txt";
-const std::string name = "9x9_unsolvable_board";
+const std::string name = "9x9_partial_board";
 const std::string filename_unsolved = dir + name + ext;
 const std::string filename_solved = dir + name + "_solved" + ext;
 
@@ -35,9 +35,9 @@ int main(int argc, const char * argv[])
     // Validate the grid
     grid->Validate();
     
-    // Create a solver
-    auto solver = factory::SolverFactory::CreateBacktrackingSolver();
-    if(solver->Solve(grid))
+    // Create a solver and solve
+    auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
+    if(solver->Solve())
       std::cout << "Solution found!" << NEWLINE;
     else
       std::cout << "No solution found!" << NEWLINE;

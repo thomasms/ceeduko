@@ -23,7 +23,7 @@ namespace toast { namespace factory
     class SolverFactory
     {
     public:
-      static const PTR<api::ISolver> CreateBacktrackingSolver();
+      static const PTR<api::ISolver> CreateBacktrackingSolver(PTR<api::IGrid>& grid);
       
     };
     

@@ -14,9 +14,9 @@ namespace toast { namespace factory
   {
     
     // The brute force backtracking solver
-    const PTR<api::ISolver> SolverFactory::CreateBacktrackingSolver()
+    const PTR<api::ISolver> SolverFactory::CreateBacktrackingSolver(PTR<api::IGrid>& grid)
     {
-      return std::make_shared<imp::BacktrackingSolver>();
+      return std::make_shared<imp::BacktrackingSolver>(grid);
     }
     
     

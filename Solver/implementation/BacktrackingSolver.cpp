@@ -10,41 +10,43 @@
 
 namespace toast { namespace imp
   {
-    BacktrackingSolver::BacktrackingSolver()
+    BacktrackingSolver::BacktrackingSolver(PTR<api::IGrid>& grid)
+    :
+    _grid(grid)
     {
+      // object for checking if a cell value is ok in that grid location
+      _cell_checker = std::make_shared<CellChecker>(_grid);
     }
     
     BacktrackingSolver::~BacktrackingSolver()
     {
     }
     
-    bool BacktrackingSolver::Solve(PTR<api::IGrid>& grid)
+    bool BacktrackingSolver::Solve()
     {
       bool result = false;
-      if(Initialise(grid))
-        result = Loop(grid);
+      if(Initialise())
+        result = Loop();
       
       return result;
     }
     
     
-    bool BacktrackingSolver::VerifyGrid(PTR<api::IGrid>& grid) const
+    bool BacktrackingSolver::VerifyGrid() const
     {
-      CellChecker checker(grid);
-      
       bool result = true;
       auto func = [&](size_t r, size_t c){
-        auto cell = (*grid)(r,c);
-        if(!checker.IsOk(r,c,(*cell)())){
+        auto cell = (*_grid)(r,c);
+        if(!_cell_checker->IsOk(r,c,(*cell)())){
           result = false;
         }
       };
-      (imp::GridOperation(grid))(func);
+      (imp::GridOperation(_grid))(func);
       
       return result;
     }
     
-    bool BacktrackingSolver::Loop(PTR<api::IGrid>& grid)
+    bool BacktrackingSolver::Loop()
     {
       // Get the next empty cell
       PTR<api::ICell> next_cell = nullptr;
@@ -59,20 +61,17 @@ namespace toast { namespace imp
       
       // loop over all possible numbers
       const TNATURAL start_number = 1;
-      const TNATURAL end_number = static_cast<TNATURAL>(grid->GetNrOfColumns());
-      
-      // object for checking if a cell value is ok in that grid location
-      CellChecker checker(grid);
+      const TNATURAL end_number = static_cast<TNATURAL>(_grid->GetNrOfColumns());
       
       for(TNATURAL value=start_number;value<=end_number;++value){
-        if(checker.IsOk(next_cell, value)){
+        if(_cell_checker->IsOk(next_cell, value)){
           
           // try the value
           next_cell->SetValue(value);
           
           // recursively check if ok
-          if(Loop(grid)){
-            return VerifyGrid(grid);
+          if(Loop()){
+            return VerifyGrid();
           }
           
           // reaches here if not a valid value, clear the cell and try the next value
@@ -83,24 +82,24 @@ namespace toast { namespace imp
       return false;
     }
         
-    bool BacktrackingSolver::Initialise(PTR<api::IGrid>& grid)
+    bool BacktrackingSolver::Initialise()
     {
       // Clear the empty cells vector
       // These are the cells which have not been set values in the grid.
       _empty_cells.resize(0);
       
       // Check that the grid has been correctly setup - i.e. check existing values are ok.
-      if(!VerifyGrid(grid))
+      if(!VerifyGrid())
         return false;
       
       // Get all of the empty cells
       auto func = [&](size_t r, size_t c){
-        auto cell = (*grid)(r,c);
+        auto cell = (*_grid)(r,c);
         if(!cell->HasValue()){
           _empty_cells.push_back(cell);
         }
       };
-      (imp::GridOperation(grid))(func);
+      (imp::GridOperation(_grid))(func);
       
       return true;
     }

@@ -23,19 +23,21 @@ namespace toast { namespace imp
     class BacktrackingSolver : public api::ISolver
     {
     public:
-      BacktrackingSolver();
+      BacktrackingSolver(PTR<api::IGrid>& grid);
       ~BacktrackingSolver();
       
       // Returns false if no solution exists
-      virtual bool Solve(PTR<api::IGrid>& grid) override;
+      virtual bool Solve() override;
       
     private:
-      bool VerifyGrid(PTR<api::IGrid>& grid) const;
-      bool Loop(PTR<api::IGrid>& grid);
-      bool Initialise(PTR<api::IGrid>& grid);
+      bool VerifyGrid() const;
+      bool Loop();
+      bool Initialise();
       
     private:
       std::vector< PTR<api::ICell> > _empty_cells;
+      PTR<api::IGrid>& _grid;
+      PTR<CellChecker> _cell_checker;
     };
   }
 }

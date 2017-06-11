@@ -30,7 +30,7 @@ namespace toast { namespace api
        * param[inout] grid The grid for which to solve
        * return True if solution found, false if no solution found
        */
-      virtual bool Solve(PTR<IGrid>& grid) = 0;
+      virtual bool Solve() = 0;
     };
     
   }
