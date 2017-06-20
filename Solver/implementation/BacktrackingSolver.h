@@ -27,12 +27,17 @@ namespace toast { namespace imp
       ~BacktrackingSolver();
       
       // Returns false if no solution exists
+      //
+      // Throws GeneralException if the grid dimensions are incompatible
       virtual bool Solve() override;
       
     private:
       bool VerifyGrid() const;
       bool Loop();
       bool Initialise();
+      
+      // throws exception on incorrect grid
+      void CheckGridDimensions() const;
       
     private:
       std::vector< PTR<api::ICell> > _empty_cells;

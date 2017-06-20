@@ -88,6 +88,9 @@ namespace toast { namespace imp
       // These are the cells which have not been set values in the grid.
       _empty_cells.resize(0);
       
+      // For this solver we require a square grid of square number size, i.e. 4, 9, 16, etc
+      CheckGridDimensions();
+      
       // Check that the grid has been correctly setup - i.e. check existing values are ok.
       if(!VerifyGrid())
         return false;
@@ -102,6 +105,18 @@ namespace toast { namespace imp
       (imp::GridOperation(_grid))(func);
       
       return true;
+    }
+    
+    void BacktrackingSolver::CheckGridDimensions() const
+    {
+      //check the grid dimensions - for this solver it must be square and of square size i.e. 4, 9, 16, etc..
+      if(_grid->GetNrOfRows() != _grid->GetNrOfColumns())
+        throw GeneralException("This solver only supports square grids");
+      
+      auto sub_square_size = sqrt(static_cast<TVALUE>(_grid->GetNrOfRows()));
+      
+      if(ceil(sub_square_size) != sub_square_size)
+        throw GeneralException("This solver only supports square number dimensions, i.e. size of 4x4, 9x9, 16x16, etc");
     }
     
   }

@@ -27,6 +27,7 @@ namespace toast { namespace api
       
       /* @brief Solves the grid
        *
+       * throws GeneralException when grid is not setup correctly
        * param[inout] grid The grid for which to solve
        * return True if solution found, false if no solution found
        */

@@ -20,23 +20,25 @@
 using namespace toast;
 const std::string dir = "//Users//tom//XCodeProjects//Solver//Solver//";
 const std::string ext = ".txt";
-const std::string name = "9x9_partial_board";
+const std::string name = "9x9_empty_board";
 const std::string filename_unsolved = dir + name + ext;
 const std::string filename_solved = dir + name + "_solved" + ext;
 
 int main(int argc, const char * argv[])
 {
-  try{    
-    // Read in the grid from file
+  try{
+    // Create an empty grid and the solver
     auto grid = factory::GridFactory::CreateEmptySquareGrid(0);
+    auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
+    
+    // Read in the grid from file
     PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
     io::ReadFromFile(filename_unsolved, serializable_object);
     
     // Validate the grid
     grid->Validate();
     
-    // Create a solver and solve
-    auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
+    // Perform solve
     if(solver->Solve())
       std::cout << "Solution found!" << NEWLINE;
     else
