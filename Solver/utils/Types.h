@@ -17,12 +17,12 @@
 namespace toast { namespace utils
   {
     using TVALUE = double;
-    using TNATURAL = int;
+    using TNATURAL = size_t;
     
     template<class T>
     using PTR = std::shared_ptr<T>;
     
-    const auto UNDEFINED_INT = -1;
+    const auto UNDEFINED_INT = 99999;
     const auto SPACING = std::setw(20);
     const char NEWLINE = '\n';
     const char EMPTYCELL = '*';
