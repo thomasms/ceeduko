@@ -22,6 +22,10 @@ namespace toast { namespace utils
       {
       }
       
+      virtual ~GeneralException() throw()
+      {        
+      }
+      
       virtual const char* what() const throw()
       {
         return _what.c_str();

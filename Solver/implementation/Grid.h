@@ -10,6 +10,7 @@
 #define TOAST_IMP_GRID_H
 
 #include <assert.h>
+#include <algorithm>
 #include <cmath>
 #include <vector>
 

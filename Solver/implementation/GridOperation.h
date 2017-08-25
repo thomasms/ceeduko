@@ -9,6 +9,8 @@
 #ifndef TOAST_IMP_GRID_OPERATION_H
 #define TOAST_IMP_GRID_OPERATION_H
 
+#include <functional>
+
 #include "Types.h"
 
 #include "ICell.h"
