@@ -9,7 +9,6 @@ script:
   - cd build
   - cmake ..
   - make
-  - ./bin/fortrantest
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
