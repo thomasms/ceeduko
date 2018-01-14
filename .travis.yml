@@ -1,0 +1,15 @@
+language: c++
+sudo: required
+before_install:
+  - sudo apt-get install g++
+
+script:
+  - cd Solver
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - ./bin/fortrantest
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

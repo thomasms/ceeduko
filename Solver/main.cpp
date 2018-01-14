@@ -18,7 +18,7 @@
 #include "FileIO.h"
 
 using namespace toast;
-const std::string dir = "//Users//tom//XCodeProjects//Solver//Solver//";
+const std::string dir = "//path//to//...//Solver//Solver//";
 const std::string ext = ".txt";
 const std::string name = "9x9_empty_board";
 const std::string filename_unsolved = dir + name + ext;
