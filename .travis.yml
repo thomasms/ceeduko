@@ -4,7 +4,6 @@ before_install:
   - sudo apt-get install g++
 
 script:
-  - cd Solver
   - mkdir build
   - cd build
   - cmake ..
