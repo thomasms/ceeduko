@@ -10,12 +10,11 @@ build:
   # install the necessary build tools when needed
   before_script: 
     - apt update && apt -y install make autoconf cmake build-essential
-    - cd Solver
     - mkdir build
     - cd build
     - cmake ..
   script: 
-    - make
+    - make -j4
   artifacts:
     paths:
       - main
@@ -28,4 +27,4 @@ build:
 test:
   stage: test
   script:
-    - ./main
+    - echo "no tests yet"
