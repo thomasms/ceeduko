@@ -2,6 +2,8 @@
 
 ### A sudoku solver written in C++
 
+[![Build Status](https://travis-ci.org/thomasms/ceeduko.svg?branch=master)](https://travis-ci.org/thomasms/ceeduko)
+
 - [About](#about)
 - [Status](#status)
 - [Building](#building)
