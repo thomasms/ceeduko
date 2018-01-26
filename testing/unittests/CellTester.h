@@ -9,6 +9,8 @@
 #ifndef TOAST_UNIT_TESTS_CELL_TESTER_H
 #define TOAST_UNIT_TESTS_CELL_TESTER_H
 
+#include <functional>
+
 #include "catch.hpp"
 
 #include "ICell.h"
@@ -84,10 +86,10 @@ namespace toast { namespace unittests
       }
       
     protected:
-      TNATURAL _value;
       PTR<api::ICell> _cell;
       std::function<TNATURAL(const api::ICell&)> _getter;
       std::function<void(api::ICell&,TNATURAL)> _setter;
+      TNATURAL _value;
     };
     
   }

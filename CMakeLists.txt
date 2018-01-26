@@ -1,25 +1,60 @@
-cmake_minimum_required(VERSION 3.1.0)
-project (Solver)
+cmake_minimum_required (VERSION 2.8)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic")
+# project name and details
+project (Ceeduko)
+set(PROJECT_DESCRIPTION "Ceeduko")
+set(PROJECT_URL "https://github.com/thomasms/ceeduko")
 
-set(SOLVER_SOURCE_DIR ${PROJECT_SOURCE_DIR}/source)
+# Get the fispact version, set in .VERSION file
+file ( STRINGS "${CMAKE_SOURCE_DIR}/.VERSION" VERSION )
+string( REPLACE "." ";" VERSION_LIST ${VERSION} )
+list(GET VERSION_LIST 0 VERSION_MAJOR)
+list(GET VERSION_LIST 1 VERSION_MINOR)
+list(GET VERSION_LIST 2 VERSION_PATCH)
+set(CEEDUKO_PROJECT_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+message ( STATUS "CMake build configuration for Ceeduko ${CEEDUKO_PROJECT_VERSION}" )
 
-include_directories("${SOLVER_SOURCE_DIR}/utils"
-                    "${SOLVER_SOURCE_DIR}/api"
-                    "${SOLVER_SOURCE_DIR}/factory"
-                    "${SOLVER_SOURCE_DIR}/implementation"
-                    "${SOLVER_SOURCE_DIR}/io")
+# options
+option(BUILD_TESTS "Build the tests" ON)
 
-file(GLOB HEADERS ${SOLVER_SOURCE_DIR}/utils/*.h
-                  ${SOLVER_SOURCE_DIR}/api/*.h
-                  ${SOLVER_SOURCE_DIR}/factory/*.h
-                  ${SOLVER_SOURCE_DIR}/implementation/*.h
-                  ${SOLVER_SOURCE_DIR}/io/*.h)
+# source directory
+set (SOURCE_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/source)
+set (TEST_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/testing)
 
-file(GLOB SOURCES ${SOLVER_SOURCE_DIR}/factory/*.cpp
-                  ${SOLVER_SOURCE_DIR}/implementation/*.cpp
-                  ${SOLVER_SOURCE_DIR}/main.cpp)
+# C++ flags
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-add_executable(main ${HEADERS} ${SOURCES})
+# set the output directories
+set(CEEDUKO_BUILD_DIR ${CMAKE_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
+
+# set the source directories
+set (API_DIR ${SOURCE_DIR_BASE}/api)
+set (FACTORY_DIR ${SOURCE_DIR_BASE}/factory)
+set (IMPLEMENTATION_DIR ${SOURCE_DIR_BASE}/implementation)
+set (IO_DIR ${SOURCE_DIR_BASE}/io)
+set (UTILS_DIR ${SOURCE_DIR_BASE}/utils)
+
+set (PROGRAM_DIR ${SOURCE_DIR_BASE}/programs)
+
+set (ALL_INCLUDES
+    ${API_DIR}
+    ${FACTORY_DIR}
+    ${IMPLEMENTATION_DIR}
+    ${IO_DIR}
+    ${UTILS_DIR})
+
+include_directories(${ALL_INCLUDES})
+
+# Add sources
+add_subdirectory(${SOURCE_DIR_BASE})
+if(BUILD_TESTS)
+    add_subdirectory(${TEST_DIR_BASE})
+endif()

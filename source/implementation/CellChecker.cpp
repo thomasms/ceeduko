@@ -45,7 +45,7 @@ namespace toast { namespace imp
     
     bool CellChecker::IsInRow(size_t row_index, size_t column_index, TNATURAL value) const
     {
-      for(int c=0;c<_grid->GetNrOfColumns();++c){
+      for(size_t c=0;c<_grid->GetNrOfColumns();++c){
         
         // Ignore the cell in question
         if(c == column_index)continue;
@@ -59,7 +59,7 @@ namespace toast { namespace imp
     
     bool CellChecker::IsInColumn(size_t row_index, size_t column_index, TNATURAL value) const
     {
-      for(int r=0;r<_grid->GetNrOfRows();++r){
+      for(size_t r=0;r<_grid->GetNrOfRows();++r){
         
         // Ignore the cell in question
         if(r == row_index)continue;

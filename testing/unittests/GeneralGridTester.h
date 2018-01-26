@@ -119,11 +119,11 @@ namespace toast { namespace unittests
       }
       
     protected:
+      size_t _nr_of_rows;
+      size_t _nr_of_columns;
       TNATURAL _value;
       PTR<ITester> _cell_tester;
       PTR<api::IGrid> _grid;
-      size_t _nr_of_rows;
-      size_t _nr_of_columns;
     };
     
   }

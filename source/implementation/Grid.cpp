@@ -21,11 +21,6 @@ namespace toast { namespace imp
     }
     
     void Grid::CreateGrid(size_t nr_of_rows, size_t nr_of_columns){
-#ifdef ASSERTIONS
-      assert(nr_of_rows >= 0 );
-      assert(nr_of_columns >= 0 );
-#endif
-      
       _cells.resize(0);
       for(size_t i=0;i<nr_of_rows;++i){
         _cells.push_back(factory::CellFactory::CreateEmptyCellRow(nr_of_columns));
@@ -38,8 +33,8 @@ namespace toast { namespace imp
     
     const PTR<api::ICell>& Grid::GetCell(size_t row, size_t column) const{
 #ifdef ASSERTIONS
-      assert(row >= 0 && row < GetNrOfRows() );
-      assert(column >= 0 && column < GetNrOfColumns() );
+      assert(row < GetNrOfRows() );
+      assert(column < GetNrOfColumns() );
 #endif
       
       return _cells[row][column];

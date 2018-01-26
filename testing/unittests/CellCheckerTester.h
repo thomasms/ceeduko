@@ -79,10 +79,10 @@ namespace toast { namespace unittests
       }
       
     private:
-      TNATURAL _value;
+      PTR<api::IGrid> _grid;
       size_t _row_index;
       size_t _column_index;
-      PTR<api::IGrid> _grid;
+      TNATURAL _value;
     };
     
   }
