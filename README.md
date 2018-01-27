@@ -8,6 +8,7 @@
 - [About](#about)
 - [Status](#status)
 - [Building](#building)
+- [Run](#run)
 - [Future](#future)
 - [License](#license)
 
@@ -28,10 +29,39 @@ cd build
 cmake ..    #point to top level CMakeLists.txt
 make -j${NCPUS}
 ```
+Run
+------
+Currently, it will only build a command line program 'ceeduko' and the unit tests 'ceedukotests'.
+To run the command line program, it simply takes one argument, the filename of the board, as below:
+```bash
+./build/bin/ceeduko boards/9x9_partial.board
+```
+Giving the following output.
+```bash
+Solution found!
+9 9
+5 7 6 2 3 8 1 4 9
+2 3 9 4 1 6 5 7 8
+4 1 8 5 9 7 2 3 6
+1 6 2 9 4 5 7 8 3
+7 4 3 1 8 2 9 6 5
+8 9 5 7 6 3 4 1 2
+6 5 4 3 2 1 8 9 7
+3 2 1 8 7 9 6 5 4
+9 8 7 6 5 4 3 2 1
+```
+This will then produce an output file, with the same name as the input, but with '.solved' appened.
+There are some sample boards in sub directory, boards, to use an example. The file format is:
+
+<number of rows> <number of columns>
+<board>
+
+The numbers in the board are whitespace separated, and if a value is unknown an asterisk is used '*'.
 
 Future
 ------
 To do:
+- Improve serialization, allow for larger boards
 - Other solvers
 - Many solutions
 - Python API
