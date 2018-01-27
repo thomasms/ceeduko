@@ -18,15 +18,25 @@
 #include "FileIO.h"
 
 using namespace toast;
-const std::string dir = "//path//to//...//Solver//Solver//";
-const std::string ext = ".txt";
-const std::string name = "9x9_empty_board";
-const std::string filename_unsolved = dir + name + ext;
-const std::string filename_solved = dir + name + "_solved" + ext;
+
+std::string filename_unsolved = "";
+
+void GetCmdLineArgs(int argc, const char * argv[]){
+
+    if ( argc != 2 ) // argc should be 2 for correct execution
+        // We print argv[0] assuming it is the program name
+        std::cout<<"usage: "<< argv[0] <<" <filename>\n";
+    else {
+        // We assume argv[1] is a filename to open
+        filename_unsolved = std::string(argv[1]);
+    }
+}
 
 int main(int argc, const char * argv[])
 {
   try{
+    GetCmdLineArgs(argc, argv);
+
     // Create an empty grid and the solver
     auto grid = factory::GridFactory::CreateEmptySquareGrid(0);
     auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
@@ -46,7 +56,7 @@ int main(int argc, const char * argv[])
     
     // Write the solved grid to file
     serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
-    io::WriteToFile(filename_solved, serializable_object);
+    io::WriteToFile(filename_unsolved + ".solved", serializable_object);
     
     // Write to std output
     std::cout << serializable_object << NEWLINE;
