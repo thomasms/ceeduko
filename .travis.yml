@@ -23,6 +23,10 @@ branches:
   only:
   - master
 
+before_script:
+  - cd ${TRAVIS_BUILD_DIR}
+- cat codecov.yml | curl --data-binary @- https://codecov.io/validate # validate codecov yml
+
 script:
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build
