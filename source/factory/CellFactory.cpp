@@ -22,7 +22,7 @@ namespace toast { namespace factory
   // Valued Cell
   const PTR<api::ICell> CellFactory::CreateValueCell(TNATURAL value)
   {
-    const PTR<api::ICell> cell = std::make_shared<imp::Cell>();
+    const PTR<api::ICell> cell = CreateEmptyCell();
     cell->SetValue(value);
     
     return cell;

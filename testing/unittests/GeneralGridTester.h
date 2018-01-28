@@ -81,10 +81,13 @@ namespace toast { namespace unittests
     protected:
       std::vector<TNATURAL> CreateTestValues(){
         std::vector<TNATURAL> values = std::vector<TNATURAL>(_nr_of_rows*_nr_of_columns, 0);
-        TNATURAL counter = 0;
-        for(auto& e: values)
-          e = _value + counter++;
-        
+        TNATURAL start = 1;
+        TNATURAL end   = std::min(_nr_of_rows, _nr_of_columns);
+        TNATURAL counter = start;
+        for(auto& e: values){
+            if(counter >= end) counter = start;
+            e = _value + counter++;
+        }
         return values;
       }
       

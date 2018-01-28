@@ -35,7 +35,7 @@ script:
   - ./bin/ceeduko ../boards/9x9_empty.board
   - ./bin/ceeduko ../boards/9x9_partial.board
   - ./bin/ceeduko ../boards/9x9_unsolvable.board
-  - cd ..
+  - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_coverage
   - cd build_coverage
   - cmake -DCMAKE_BUILD_TYPE=Debug ..

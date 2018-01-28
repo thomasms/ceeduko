@@ -66,11 +66,9 @@ namespace toast { namespace imp
         for(auto& cell: row){
           cell->Validate();
           
-          /*
           // ToDo: Fix unit tests to ensure this is valid
           if((cell->HasValue()) && ((*cell)() > GetMaxValue()))
             throw GeneralException("Values cannot exceed the grid size");
-           */
         }
       }
     }
