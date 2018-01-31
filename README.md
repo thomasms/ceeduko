@@ -14,7 +14,7 @@
 
 About
 ------
-A simple sudoku solver which uses a recursive backtracking algorithm to find the first possible solution. If more than one solution is possible it finds the first. In the future we hope to add other solvers, and show give solutions for any board layout. Currently only supports square matrices of 4X4 and 9X9.
+A simple sudoku solver which uses a recursive backtracking algorithm to find the first possible solution. If more than one solution is possible it finds the first. In the future we hope to add other solvers, and determine solutions for any board layout. Currently only supports square matrices of 4X4 and 9X9.
 
 Status
 ------
