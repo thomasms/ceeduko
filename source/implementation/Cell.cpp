@@ -11,8 +11,6 @@
 namespace toast { namespace imp
   {
     Cell::Cell()
-    :
-    k_unset_value(UNDEFINED_INT)
     {
       Clear();
     }

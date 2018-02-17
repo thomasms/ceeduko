@@ -22,11 +22,11 @@ namespace toast { namespace utils
     template<class T>
     using PTR = std::shared_ptr<T>;
     
-    const auto UNDEFINED_INT = 99999;
+    constexpr TNATURAL UNDEFINED_INT = 99999;
     const auto SPACING = std::setw(20);
-    const char NEWLINE = '\n';
-    const char EMPTYCELL = '*';
-    const char SEPARATOR = ' ';
+    constexpr char NEWLINE = '\n';
+    constexpr char EMPTYCELL = '*';
+    constexpr char SEPARATOR = ' ';
   }
 }
 

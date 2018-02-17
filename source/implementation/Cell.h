@@ -22,6 +22,8 @@ using namespace toast::utils;
 
 namespace toast { namespace imp
 {
+  constexpr TNATURAL k_unset_value = UNDEFINED_INT;
+    
   class Cell : public api::ICell
   {
   public:
@@ -55,7 +57,6 @@ namespace toast { namespace imp
     
   private:
     TNATURAL _value;
-    const TNATURAL k_unset_value;
     
   };
     

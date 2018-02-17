@@ -17,9 +17,10 @@ message ( STATUS "CMake build configuration for Ceeduko ${CEEDUKO_PROJECT_VERSIO
 # options
 option(BUILD_TESTS "Build the tests" ON)
 
-# source directory
+# main directories
 set (SOURCE_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/source)
 set (TEST_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/testing)
+set (EXTERNAL_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/external)
 
 # C++ flags
 set(CMAKE_CXX_STANDARD 14)
@@ -48,13 +49,16 @@ set (UTILS_DIR ${SOURCE_DIR_BASE}/utils)
 
 set (PROGRAM_DIR ${SOURCE_DIR_BASE}/programs)
 
-set (ALL_INCLUDES
+set (CEEDUKO_INCLUDES
     ${API_DIR}
     ${FACTORY_DIR}
     ${IMPLEMENTATION_DIR}
     ${IO_DIR}
     ${UTILS_DIR})
 
+set (CATCH_INCLUDES ${EXTERNAL_DIR_BASE}/Catch2/single_include)
+
+set (ALL_INCLUDES ${CEEDUKO_INCLUDES} ${CATCH_INCLUDES})
 include_directories(${ALL_INCLUDES})
 
 # Add sources
