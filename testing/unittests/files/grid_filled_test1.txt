@@ -1,8 +1,0 @@
-! Number of Rows X Number of Columns
-4, 3
-
-! Grid
-3, 9, 8
-6, 1, 7
-1, 5, 4
-2, 7, 3
