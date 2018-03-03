@@ -17,8 +17,6 @@
 #include "ICell.h"
 #include "IGrid.h"
 
-#include "GridOperation.h"
-
 using namespace toast::utils;
 
 namespace toast { namespace imp

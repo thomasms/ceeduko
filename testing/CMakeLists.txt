@@ -14,7 +14,6 @@ set (UNITTEST_SOURCE
     ${IMPLEMENTATION_DIR}/Cell.cpp
     ${IMPLEMENTATION_DIR}/CellChecker.cpp
     ${IMPLEMENTATION_DIR}/Grid.cpp
-    ${IMPLEMENTATION_DIR}/Serialization.cpp
     ${FACTORY_DIR}/CellFactory.cpp
     ${FACTORY_DIR}/GridFactory.cpp
     ${FACTORY_DIR}/SolverFactory.cpp)

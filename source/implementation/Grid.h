@@ -27,24 +27,43 @@
 using namespace toast::utils;
 
 namespace toast { namespace imp
-  {
+{
     class Grid : public api::IGrid
     {
     public:
-      Grid(size_t nr_of_rows, size_t nr_of_columns);
-      ~Grid();
+        Grid(size_t nr_of_rows, size_t nr_of_columns);
+        ~Grid();
       
-      // Overload the function call operator to access the cell
-      const PTR<api::ICell>& operator()(size_t row, size_t column) const override;
-      
-      const PTR<api::ICell>& GetCell(size_t row, size_t column) const override;
-      void Clear() override;
-      size_t GetNrOfRows() const override;
-      size_t GetNrOfColumns() const override;
-      
-      void Validate() const override;
-      void Serialize(std::ostream& os) const override;
-      void Deserialize(std::istream& is) override;
+        void Operation(std::function<void(size_t row, size_t column)> func) const override;
+        void Validate() const override;
+        const PTR<api::ICell>& GetCell(size_t row, size_t column) const override;
+        
+        inline const PTR<api::ICell>& operator()(size_t row, size_t column) const override
+        {
+            return GetCell(row, column);
+        }
+        
+        inline void Clear() override
+        {
+            auto func = [&](size_t r, size_t c){
+                (*this)(r,c)->Clear();
+            };
+            Operation(func);
+        }
+            
+        inline size_t GetNrOfRows() const override
+        {
+            return _cells.size();
+        }
+            
+        inline size_t GetNrOfColumns() const override
+        {
+            size_t nr_of_columns = 0;
+            if(GetNrOfRows() >0){
+                nr_of_columns = _cells[0].size();
+            }
+            return nr_of_columns;
+        }
       
     private:
       void CreateGrid(size_t nr_of_rows, size_t nr_of_columns);
@@ -52,6 +71,7 @@ namespace toast { namespace imp
       
     private:
       std::vector< std::vector< PTR<api::ICell> > > _cells;
+        
     };
     
   }

@@ -11,10 +11,11 @@
 #include "ICell.h"
 #include "IGrid.h"
 #include "ISolver.h"
-#include "ISerializable.h"
 #include "GridFactory.h"
 #include "SolverFactory.h"
 #include "GeneralException.h"
+
+#include "Serializer.h"
 #include "FileIO.h"
 
 using namespace toast;
@@ -34,32 +35,34 @@ void GetCmdLineArgs(int argc, const char * argv[]){
 
 int main(int argc, const char * argv[])
 {
-  try{
-    GetCmdLineArgs(argc, argv);
+    try{
+        GetCmdLineArgs(argc, argv);
 
-    // Create an empty grid and the solver
-    auto grid = factory::GridFactory::CreateEmptySquareGrid(0);
-    auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
+        // Create an empty grid and the solver
+        auto grid = factory::GridFactory::CreateEmptySquareGrid(30);
+        auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
     
-    // Read in the grid from file
-    PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
-    io::ReadFromFile(filename_unsolved, serializable_object);
-    
-    // Validate the grid
-    grid->Validate();
-    
-    // Perform solve
-    if(solver->Solve())
-      std::cout << "Solution found!" << NEWLINE;
-    else
-      std::cout << "No solution found!" << NEWLINE;
-    
-    // Write the solved grid to file
-    serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
-    io::WriteToFile(filename_unsolved + ".solved", serializable_object);
-    
-    // Write to std output
-    std::cout << serializable_object << NEWLINE;
+        io::Serialize<' '>(std::cout, grid);
+        
+//    // Read in the grid from file
+//    PTR<api::ISerializable> serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
+//    io::ReadFromFile(filename_unsolved, serializable_object);
+//    
+//    // Validate the grid
+//    grid->Validate();
+//    
+//    // Perform solve
+//    if(solver->Solve())
+//      std::cout << "Solution found!" << NEWLINE;
+//    else
+//      std::cout << "No solution found!" << NEWLINE;
+//    
+//    // Write the solved grid to file
+//    serializable_object = std::dynamic_pointer_cast<api::ISerializable>(grid);
+//    io::WriteToFile(filename_unsolved + ".solved", serializable_object);
+//    
+//    // Write to std output
+//    std::cout << serializable_object << NEWLINE;
   }
   catch(GeneralException& ex)
   {

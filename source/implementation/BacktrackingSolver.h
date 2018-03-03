@@ -13,7 +13,6 @@
 #include <vector>
 
 #include "CellChecker.h"
-#include "GridOperation.h"
 #include "GeneralException.h"
 
 #include "ISolver.h"

@@ -17,7 +17,6 @@
 #include "IGrid.h"
 #include "Grid.h"
 #include "GridFactory.h"
-#include "GridOperation.h"
 
 #include "CellTester.h"
 #include "ITester.h"
@@ -97,7 +96,7 @@ namespace toast { namespace unittests
           (*_grid)(r,c)->SetValue(values[i++]);
         };
         
-        (imp::GridOperation(_grid))(func);
+        _grid->Operation(func);
       }
       
       void ValidateCells(const std::vector<TNATURAL>& values){
@@ -108,7 +107,7 @@ namespace toast { namespace unittests
           _cell_tester->Validate();
         };
         
-        (imp::GridOperation(_grid))(func);
+        _grid->Operation(func);
       }
       
       void ValidateDefaultCells(){
@@ -118,7 +117,7 @@ namespace toast { namespace unittests
           _cell_tester->ValidateDefault();
         };
         
-        (imp::GridOperation(_grid))(func);
+        _grid->Operation(func);
       }
       
     protected:
