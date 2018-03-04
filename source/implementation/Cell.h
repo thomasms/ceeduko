@@ -22,43 +22,40 @@ using namespace toast::utils;
 
 namespace toast { namespace imp
 {
-  constexpr TNATURAL k_unset_value = UNDEFINED_INT;
+    constexpr TNATURAL k_unset_value = UNDEFINED_INT;
+
+    class Cell : public api::ICell
+    {
+    public:
+        Cell();
+        ~Cell();
+
+        inline TNATURAL operator()() const override{
+          return GetValue();
+        }
+
+        inline TNATURAL GetValue() const override{
+          return _value;
+        }
+
+        inline void SetValue(TNATURAL value) override{
+          _value = value;
+        }
+
+        inline void Clear() override{
+          _value = k_unset_value;
+        }
+
+        inline bool HasValue() const override{
+          return _value != k_unset_value;
+        }
+
+        void Validate() const override;
+        
+    private:
+        TNATURAL _value;
     
-  class Cell : public api::ICell
-  {
-  public:
-    Cell();
-    ~Cell();
-    
-    inline TNATURAL operator()() const override{
-      return GetValue();
-    }
-    
-    inline TNATURAL GetValue() const override{
-      return _value;
-    }
-    
-    inline void SetValue(TNATURAL value) override{
-      _value = value;
-    }
-    
-    inline void Clear() override{
-      _value = k_unset_value;
-    }
-    
-    inline bool HasValue() const override{
-      return _value != k_unset_value;
-    }
-    
-    void Validate() const override;
-    
-    void Serialize(std::ostream& os) const override;
-    void Deserialize(std::istream& is) override;
-    
-  private:
-    TNATURAL _value;
-    
-  };
+    };
     
 }
 }

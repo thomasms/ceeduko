@@ -111,7 +111,7 @@ namespace toast { namespace imp
         }
       };
       
-      (imp::GridOperation(_grid))(func);
+      _grid->Operation(func);
       
       return r_and_c;
     }

@@ -5,7 +5,6 @@ set (UNITTEST_EXE_SOURCE ${TEST_DIR_BASE}/main.cpp)
 set (UNITTEST_DIR ${TEST_DIR_BASE}/unittests)
 
 set (UNITTEST_SOURCE
-    ${UNITTEST_DIR}/BasicAccessorUnitTests.cpp
     ${UNITTEST_DIR}/CellCheckerUnitTests.cpp
     ${UNITTEST_DIR}/CellUnitTest.cpp
     ${UNITTEST_DIR}/GridUnitTests.cpp
@@ -14,7 +13,6 @@ set (UNITTEST_SOURCE
     ${IMPLEMENTATION_DIR}/Cell.cpp
     ${IMPLEMENTATION_DIR}/CellChecker.cpp
     ${IMPLEMENTATION_DIR}/Grid.cpp
-    ${IMPLEMENTATION_DIR}/Serialization.cpp
     ${FACTORY_DIR}/CellFactory.cpp
     ${FACTORY_DIR}/GridFactory.cpp
     ${FACTORY_DIR}/SolverFactory.cpp)

@@ -14,31 +14,29 @@
 #include "GeneralException.h"
 #include "Types.h"
 
-#include "Serialization.h"
+#include "Serializer.h"
 
-#include "ISerializable.h"
-
-using namespace toast::imp;
+#include "IGrid.h"
 
 namespace toast { namespace io
   {
-    void WriteToFile(std::string filename, const PTR<api::ISerializable>& serializable_object)
+    void WriteToFile(std::string filename, const PTR<api::IGrid>& grid)
     {
       std::ofstream file(filename);
       if(!file)
         throw utils::GeneralException("Cannot open file: " + filename);
-      
-      file << serializable_object;
+
+      file << grid;
       file.close();
     }
     
-    void ReadFromFile(std::string filename, PTR<api::ISerializable> serializable_object)
+    void ReadFromFile(std::string filename, PTR<api::IGrid>& grid)
     {
       std::ifstream file(filename);
       if(!file)
         throw utils::GeneralException("Cannot open file: " + filename);
-      
-      file >> serializable_object;
+
+      file >> grid;
       file.close();
     }
   }

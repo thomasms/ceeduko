@@ -41,7 +41,7 @@ namespace toast { namespace imp
           result = false;
         }
       };
-      (imp::GridOperation(_grid))(func);
+      _grid->Operation(func);
       
       return result;
     }
@@ -102,7 +102,7 @@ namespace toast { namespace imp
           _empty_cells.push_back(cell);
         }
       };
-      (imp::GridOperation(_grid))(func);
+      _grid->Operation(func);
       
       return true;
     }

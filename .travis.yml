@@ -44,6 +44,8 @@ script:
   - ./bin/ceeduko ../boards/9x9_empty.board
   - ./bin/ceeduko ../boards/9x9_partial.board
   - ./bin/ceeduko ../boards/9x9_unsolvable.board
+  - ./bin/ceeduko ../boards/16x16_empty.board
+  - ./bin/ceeduko ../boards/16x16_partial.board
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build_coverage
   - cd build_coverage
@@ -55,6 +57,8 @@ script:
   - ./bin/ceeduko ../boards/9x9_empty.board
   - ./bin/ceeduko ../boards/9x9_partial.board
   - ./bin/ceeduko ../boards/9x9_unsolvable.board
+  - ./bin/ceeduko ../boards/16x16_empty.board
+  - ./bin/ceeduko ../boards/16x16_partial.board
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}/build_debug

@@ -9,11 +9,12 @@
 #ifndef TOAST_API_IGRID_H
 #define TOAST_API_IGRID_H
 
+#include <functional>
+
 #include "Types.h"
 
 #include "IClearable.h"
 #include "ICell.h"
-#include "ISerializable.h"
 #include "IValidatable.h"
 
 using namespace toast::utils;
@@ -27,7 +28,6 @@ namespace toast { namespace api
      *         number of rows and columns. A grid cannot be resized once constructed.
      */
     class IGrid : public IClearable,
-                  public ISerializable,
                   public IValidatable
     {
     public:
@@ -42,6 +42,13 @@ namespace toast { namespace api
        * @return A constant shared pointer to the cell.
        */
       virtual const PTR<ICell>& operator()(size_t row, size_t column) const = 0;
+        
+     /* @brief Applies a function to the grid
+      *        Note that indices are zero based.
+      *
+      * @param[in] function to apply to the grid
+      */
+      virtual void Operation(std::function<void(size_t row, size_t column)> func) const = 0;
       
       /* @brief Returns a shared pointer to the cell given the row and column indices
        *        in the grid. 

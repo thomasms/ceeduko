@@ -15,7 +15,6 @@
 
 #include "IGrid.h"
 #include "CellChecker.h"
-#include "GridOperation.h"
 
 #include "ITester.h"
 
@@ -75,7 +74,7 @@ namespace toast { namespace unittests
           REQUIRE(checker.IsOk(r,c,(*cell)()) == true);
         };
         
-        (imp::GridOperation(_grid))(func);
+        _grid->Operation(func);
       }
       
     private:
