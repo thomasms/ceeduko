@@ -26,16 +26,13 @@ using namespace toast::utils;
 
 namespace toast { namespace io
 {
-    template <char delimiter, class Container>
-    void split(const std::string& str, Container& cont)
-    {
-        std::stringstream ss(str);
-        std::string token;
-        while (std::getline(ss, token, delimiter)) {
-            cont.push_back(token);
-        }
-    }
-    
+    /*
+     
+     Needs some work but halfway there.
+     Deserialization doesn't use delimiter
+     Shouldn't all be in the same header.
+     
+     */
     template <char delimiter>
     static void Serialize(std::ostream& stream, const PTR<api::IGrid>& grid)
     {
@@ -44,7 +41,7 @@ namespace toast { namespace io
         auto func = [&](size_t r, size_t c){
             auto cell = (*grid)(r,c);
             if(cell->HasValue())
-                stream << (*(*grid)(r,c))() << delimiter;
+                stream << (*cell)() << delimiter;
             else
                 stream << EMPTYCELL << delimiter;
             
@@ -55,17 +52,36 @@ namespace toast { namespace io
     }
     
     template <char delimiter>
-    static const PTR<api::IGrid>& Deserialize(std::istream& stream)
+    static void Deserialize(std::istream& stream, PTR<api::IGrid>& grid)
     {
-        std::string board = "";
-        stream >> board;
-        std::vector<std::string> lines;
-        split<NEWLINE>(board, lines);
+        int rows = 0;
+        int columns = 0;
+        stream >> rows >> columns;
+        grid = factory::GridFactory::CreateEmptySquareGrid(rows);
         
-        // todo
-        return nullptr;
+        auto func = [&](size_t r, size_t c){
+            auto cell = (*grid)(r,c);
+            std::string value = "";
+            stream >> value;
+            if(value[0] != EMPTYCELL)
+                cell->SetValue(stoi(value));
+        };
+        grid->Operation(func);
     }
     
+    template <char delimiter=' '>
+    std::ostream& operator<<(std::ostream& os, const PTR<api::IGrid>& grid)
+    {
+        Serialize<delimiter>(os, grid);
+        return os;
+    }
+    
+    template <char delimiter=' '>
+    std::istream& operator>>(std::istream& is, PTR<api::IGrid>& grid)
+    {
+        Deserialize<delimiter>(is, grid);
+        return is;
+    }
   }
 }
 

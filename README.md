@@ -14,7 +14,8 @@
 
 About
 ------
-A simple sudoku solver which uses a recursive backtracking algorithm to find the first possible solution. If more than one solution is possible it finds the first. In the future we hope to add other solvers, and determine solutions for any board layout. Currently only supports square matrices of 4X4 and 9X9.
+A simple sudoku solver which uses a recursive backtracking algorithm to find the first possible solution. If more than one solution is possible it finds the first. In the future we hope to add other solvers, and determine solutions for any board layout. Currently only supports square matrices of any size, but be warned the current solver is very slow above the traditional 9x9 board.
+Some sample boards exist of sizes: 4x4, 9x9, 16x16 and 100x100. The last will run very slow!
 
 Status
 ------
@@ -61,7 +62,8 @@ The numbers in the board are whitespace separated, and if a value is unknown an 
 Future
 ------
 To do:
-- Improve serialization, allow for larger boards
+- Improve serialization, allow for larger boards - Can support square boards larger than 9x9 but it very slow for boards above this size.
+- Performance improvements needed
 - Other solvers
 - Many solutions
 - Python API

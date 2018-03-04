@@ -5,7 +5,6 @@ set (UNITTEST_EXE_SOURCE ${TEST_DIR_BASE}/main.cpp)
 set (UNITTEST_DIR ${TEST_DIR_BASE}/unittests)
 
 set (UNITTEST_SOURCE
-    ${UNITTEST_DIR}/BasicAccessorUnitTests.cpp
     ${UNITTEST_DIR}/CellCheckerUnitTests.cpp
     ${UNITTEST_DIR}/CellUnitTest.cpp
     ${UNITTEST_DIR}/GridUnitTests.cpp
