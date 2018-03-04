@@ -62,7 +62,7 @@ The numbers in the board are whitespace separated, and if a value is unknown an 
 Future
 ------
 To do:
-- Improve serialization, allow for larger boards - Can support square boards larger than 9x9 but it very slow for boards above this size.
+- Improve serialization, allow for larger boards - Can support square boards larger than 9x9 but it is very slow for boards above this size.
 - Performance improvements needed
 - Other solvers
 - Many solutions
