@@ -36,23 +36,17 @@ namespace toast { namespace api
        */
       virtual TNATURAL operator()() const = 0;
       
-      /* @brief Returns the value of the cell.
-       *
-       * @return The cell value
-       */
-      virtual TNATURAL GetValue() const = 0;
-      
       /* @brief Sets the value of the cell.
        *
        * @param[in] The value to set the cell with
        */
-      virtual void SetValue(TNATURAL value) = 0;
+      virtual void operator()(TNATURAL value) = 0;
       
       /* @brief Returns true if the cell has a value, false otherwise.
        *
        * @return True if cell has a value, false otherwise.
        */
-      virtual bool HasValue() const = 0;
+      virtual operator bool() const = 0;
     };
         
   }

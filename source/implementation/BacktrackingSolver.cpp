@@ -51,7 +51,7 @@ namespace toast { namespace imp
       // Get the next empty cell
       PTR<api::ICell> next_cell = nullptr;
       for(auto cell: _empty_cells){
-        if(!cell->HasValue())
+        if(!(*cell))
           next_cell = cell;
       }
       
@@ -67,7 +67,7 @@ namespace toast { namespace imp
         if(_cell_checker->IsOk(next_cell, value)){
           
           // try the value
-          next_cell->SetValue(value);
+          (*next_cell)(value);
           
           // recursively check if ok
           if(Loop()){
@@ -98,7 +98,7 @@ namespace toast { namespace imp
       // Get all of the empty cells
       auto func = [&](size_t r, size_t c){
         auto cell = (*_grid)(r,c);
-        if(!cell->HasValue()){
+        if(!(*cell)){
           _empty_cells.push_back(cell);
         }
       };

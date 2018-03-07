@@ -93,7 +93,7 @@ namespace toast { namespace imp
     }
     
     bool CellChecker::CheckCell(PTR<api::ICell>& cell, TNATURAL value) const{
-      if(cell->HasValue() && (*cell)() == value ){
+      if((*cell) && (*cell)() == value ){
         return true;
       }
       else{

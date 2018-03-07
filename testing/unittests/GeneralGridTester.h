@@ -93,7 +93,7 @@ namespace toast { namespace unittests
       void SetValueCells(const std::vector<TNATURAL>& values){
         size_t i = 0;
         auto func = [&](size_t r, size_t c){
-          (*_grid)(r,c)->SetValue(values[i++]);
+          (*(*_grid)(r,c))(values[i++]);
         };
         
         _grid->Operation(func);
@@ -103,7 +103,7 @@ namespace toast { namespace unittests
         size_t i = 0;
         auto func = [&](size_t r, size_t c){
           auto cell = (*_grid)(r,c);
-          _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, values[i++]);
+          _cell_tester = std::make_shared<CellTester>(cell, values[i++]);
           _cell_tester->Validate();
         };
         
@@ -113,7 +113,7 @@ namespace toast { namespace unittests
       void ValidateDefaultCells(){
         auto func = [&](size_t r, size_t c){
           auto cell = (*_grid)(r,c);
-          _cell_tester = std::make_shared<CellTester>(cell, &ICell::operator(), &ICell::SetValue, 0);
+          _cell_tester = std::make_shared<CellTester>(cell, 0);
           _cell_tester->ValidateDefault();
         };
         
