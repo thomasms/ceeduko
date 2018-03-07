@@ -53,7 +53,7 @@ namespace toast { namespace unittests
       virtual void ValidateDefault() override
       {
         REQUIRE(_cell != nullptr);
-        REQUIRE(_cell->HasValue() == false);
+        REQUIRE((*_cell) == false);
         //validate cell data
         REQUIRE_NOTHROW(_cell->Validate());
       }
@@ -67,16 +67,16 @@ namespace toast { namespace unittests
         
         // check getter
         REQUIRE((*_cell)() == _value);
-        REQUIRE(_cell->HasValue() == true);
+        REQUIRE((*_cell) == true);
         
         // clear cell
         REQUIRE_NOTHROW(_cell->Clear());
-        REQUIRE(_cell->HasValue() == false);
+        REQUIRE((*_cell) == false);
         
         // and set value again
         (*_cell)(_value);
         REQUIRE((*_cell)() == _value);
-        REQUIRE(_cell->HasValue() == true);
+        REQUIRE((*_cell) == true);
       }
       
     protected:

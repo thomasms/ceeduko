@@ -40,7 +40,7 @@ namespace toast { namespace io
         
         auto func = [&](size_t r, size_t c){
             auto cell = (*grid)(r,c);
-            if(cell->HasValue())
+            if((*cell))
                 stream << (*cell)() << delimiter;
             else
                 stream << EMPTYCELL << delimiter;

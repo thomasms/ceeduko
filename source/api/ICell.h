@@ -46,7 +46,7 @@ namespace toast { namespace api
        *
        * @return True if cell has a value, false otherwise.
        */
-      virtual bool HasValue() const = 0;
+      virtual operator bool() const = 0;
     };
         
   }

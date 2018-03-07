@@ -21,7 +21,7 @@ namespace toast { namespace imp
 
     void Cell::Validate() const
     {
-      if(HasValue() && (*this)() <= 0)
+      if((*this) && (*this)() <= 0)
         throw GeneralException("Cell must have a positive value for defined values");
     }
   }

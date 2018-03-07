@@ -45,7 +45,7 @@ namespace toast { namespace unittests
         
         // check getter
         REQUIRE((*_cell)() == _value);
-        REQUIRE(_cell->HasValue() == true);
+        REQUIRE((*_cell) == true);
         
         //validate cell data
         std::function<void()> validate_func = std::bind(&api::ICell::Validate, _cell);

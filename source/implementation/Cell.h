@@ -38,12 +38,12 @@ namespace toast { namespace imp
             _value = value;
         }
 
+        inline operator bool() const override{
+            return _value != k_unset_value;
+        }
+        
         inline void Clear() override{
             _value = k_unset_value;
-        }
-
-        inline bool HasValue() const override{
-            return _value != k_unset_value;
         }
 
         void Validate() const override;
