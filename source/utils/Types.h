@@ -18,16 +18,23 @@ namespace toast { namespace utils
   {
     using TVALUE = double;
     using TNATURAL = size_t;
-    
+
     template<class T>
     using PTR = std::shared_ptr<T>;
-    
+
     const auto SPACING = std::setw(20);
       
     constexpr TNATURAL UNDEFINED_INT = 99999;
     constexpr char NEWLINE = '\n';
     constexpr char EMPTYCELL = '*';
     constexpr char SEPARATOR = ' ';
+      
+    template<typename Ret, typename T, typename... Args>
+    using GETTER = Ret(T::*)(Args...)const;
+
+    template<typename Ret, typename T, typename... Args>
+    using SETTER = Ret(T::*)(Args...);
+
   }
 }
 

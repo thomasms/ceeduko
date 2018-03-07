@@ -23,7 +23,7 @@ namespace toast { namespace factory
   const PTR<api::ICell> CellFactory::CreateValueCell(TNATURAL value)
   {
     const PTR<api::ICell> cell = CreateEmptyCell();
-    cell->SetValue(value);
+    (*cell)(value);
     
     return cell;
   }

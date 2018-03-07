@@ -31,23 +31,19 @@ namespace toast { namespace imp
         ~Cell();
 
         inline TNATURAL operator()() const override{
-          return GetValue();
+            return _value;
         }
 
-        inline TNATURAL GetValue() const override{
-          return _value;
-        }
-
-        inline void SetValue(TNATURAL value) override{
-          _value = value;
+        inline void operator()(TNATURAL value) override{
+            _value = value;
         }
 
         inline void Clear() override{
-          _value = k_unset_value;
+            _value = k_unset_value;
         }
 
         inline bool HasValue() const override{
-          return _value != k_unset_value;
+            return _value != k_unset_value;
         }
 
         void Validate() const override;

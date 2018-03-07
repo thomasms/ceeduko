@@ -67,7 +67,7 @@ namespace toast { namespace imp
         if(_cell_checker->IsOk(next_cell, value)){
           
           // try the value
-          next_cell->SetValue(value);
+          (*next_cell)(value);
           
           // recursively check if ok
           if(Loop()){

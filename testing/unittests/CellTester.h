@@ -9,8 +9,6 @@
 #ifndef TOAST_UNIT_TESTS_CELL_TESTER_H
 #define TOAST_UNIT_TESTS_CELL_TESTER_H
 
-#include <functional>
-
 #include "catch.hpp"
 
 #include "ICell.h"
@@ -27,13 +25,9 @@ namespace toast { namespace unittests
     {
     public:
       CellTester(const PTR<api::ICell>& cell,
-                 const std::function<TNATURAL(const api::ICell&)>& getter,
-                 const std::function<void(api::ICell&, TNATURAL)>& setter,
                  TNATURAL value)
       :
       _cell(cell),
-      _getter(getter),
-      _setter(setter),
       _value(value)
       {
       }
@@ -72,7 +66,7 @@ namespace toast { namespace unittests
         REQUIRE_NOTHROW(_cell->Validate());
         
         // check getter
-        REQUIRE(_getter(*_cell) == _value);
+        REQUIRE((*_cell)() == _value);
         REQUIRE(_cell->HasValue() == true);
         
         // clear cell
@@ -80,15 +74,13 @@ namespace toast { namespace unittests
         REQUIRE(_cell->HasValue() == false);
         
         // and set value again
-        _setter(*_cell,_value);
-        REQUIRE(_getter(*_cell) == _value);
+        (*_cell)(_value);
+        REQUIRE((*_cell)() == _value);
         REQUIRE(_cell->HasValue() == true);
       }
       
     protected:
       PTR<api::ICell> _cell;
-      std::function<TNATURAL(const api::ICell&)> _getter;
-      std::function<void(api::ICell&,TNATURAL)> _setter;
       TNATURAL _value;
     };
     

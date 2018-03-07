@@ -9,6 +9,7 @@
 #ifndef TOAST_UNIT_TESTS_CELL_INVALID_TESTER_H
 #define TOAST_UNIT_TESTS_CELL_INVALID_TESTER_H
 
+#include <functional>
 #include <string>
 
 #include "catch.hpp"
@@ -26,12 +27,10 @@ namespace toast { namespace unittests
     {
     public:
       CellInvalidTester(const PTR<api::ICell>& cell,
-                        const std::function<TNATURAL(const api::ICell&)>& getter,
-                        const std::function<void(api::ICell&, TNATURAL)>& setter,
                         TNATURAL value,
                         std::string exception_msg)
       :
-      CellTester(cell, getter, setter, value),
+      CellTester(cell, value),
       _exception_msg(exception_msg)
       {
       }
@@ -45,7 +44,7 @@ namespace toast { namespace unittests
         REQUIRE(_cell != nullptr);
         
         // check getter
-        REQUIRE(_getter(*_cell) == _value);
+        REQUIRE((*_cell)() == _value);
         REQUIRE(_cell->HasValue() == true);
         
         //validate cell data

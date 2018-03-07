@@ -64,7 +64,7 @@ namespace toast { namespace io
             std::string value = "";
             stream >> value;
             if(value[0] != EMPTYCELL)
-                cell->SetValue(stoi(value));
+                (*cell)(stoi(value));
         };
         grid->Operation(func);
     }
