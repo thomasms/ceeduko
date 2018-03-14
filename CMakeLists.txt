@@ -5,7 +5,7 @@ project (Ceeduko)
 set(PROJECT_DESCRIPTION "Ceeduko")
 set(PROJECT_URL "https://github.com/thomasms/ceeduko")
 
-# Get the fispact version, set in .VERSION file
+# Get the version, set in .VERSION file
 file ( STRINGS "${CMAKE_SOURCE_DIR}/.VERSION" VERSION )
 string( REPLACE "." ";" VERSION_LIST ${VERSION} )
 list(GET VERSION_LIST 0 VERSION_MAJOR)
@@ -16,6 +16,7 @@ message ( STATUS "CMake build configuration for Ceeduko ${CEEDUKO_PROJECT_VERSIO
 
 # options
 option(BUILD_TESTS "Build the tests" ON)
+option(BUILD_PY_API "Build the python API" OFF)
 
 # main directories
 set (SOURCE_DIR_BASE ${CMAKE_CURRENT_LIST_DIR}/source)
@@ -45,6 +46,7 @@ set (API_DIR ${SOURCE_DIR_BASE}/api)
 set (FACTORY_DIR ${SOURCE_DIR_BASE}/factory)
 set (IMPLEMENTATION_DIR ${SOURCE_DIR_BASE}/implementation)
 set (IO_DIR ${SOURCE_DIR_BASE}/io)
+set (PY_DIR ${SOURCE_DIR_BASE}/py)
 set (UTILS_DIR ${SOURCE_DIR_BASE}/utils)
 
 set (PROGRAM_DIR ${SOURCE_DIR_BASE}/programs)
@@ -57,12 +59,16 @@ set (CEEDUKO_INCLUDES
     ${UTILS_DIR})
 
 set (CATCH_INCLUDES ${EXTERNAL_DIR_BASE}/Catch2/single_include)
+set (PYBIND_INCLUDES ${EXTERNAL_DIR_BASE}/pybind11/include)
 
 set (ALL_INCLUDES ${CEEDUKO_INCLUDES} ${CATCH_INCLUDES})
 include_directories(${ALL_INCLUDES})
 
 # Add sources
 add_subdirectory(${SOURCE_DIR_BASE})
+if(BUILD_PY_API)
+    add_subdirectory(${PY_DIR})
+endif()
 if(BUILD_TESTS)
     add_subdirectory(${TEST_DIR_BASE})
 endif()
