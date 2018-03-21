@@ -16,23 +16,20 @@ namespace toast { namespace factory
   // Empty Cell
   const PTR<api::ICell> CellFactory::CreateEmptyCell()
   {
-    return std::make_shared<imp::Cell>();
+      return std::make_shared<imp::Cell>();
   }
   
   // Valued Cell
   const PTR<api::ICell> CellFactory::CreateValueCell(TNATURAL value)
   {
-    const PTR<api::ICell> cell = CreateEmptyCell();
-    (*cell)(value);
-    
-    return cell;
+      return std::make_shared<imp::Cell>(value);
   }
   
   // Empty Cell Row
   const std::vector< PTR<api::ICell> > CellFactory::CreateEmptyCellRow(size_t nr_of_cells){
     std::vector< PTR<api::ICell>> row;
     
-    for(TNATURAL i=0;i<nr_of_cells;++i){
+    for(size_t i=0; i<nr_of_cells; ++i){
       row.push_back(CreateEmptyCell());
     }
     

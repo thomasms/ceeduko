@@ -27,15 +27,6 @@ namespace toast { namespace imp
             _cells.push_back(factory::CellFactory::CreateEmptyCellRow(nr_of_columns));
         }
     }
-
-    const PTR<api::ICell>& Grid::GetCell(size_t row, size_t column) const
-    {
-#ifdef ASSERTIONS
-        assert(row < GetNrOfRows() );
-        assert(column < GetNrOfColumns() );
-#endif
-        return _cells[row][column];
-    }
     
     void Grid::Operation(std::function<void(size_t row, size_t column)> func) const
     {
@@ -51,23 +42,13 @@ namespace toast { namespace imp
     void Grid::Validate() const
     {
         auto func = [&](size_t r, size_t c){
-            auto cell = GetCell(r,c);
+            auto cell = (*this)(r,c);
             cell->Validate();
             
             if((*cell) && ((*cell)() > GetMaxValue()))
                 throw GeneralException("Values cannot exceed the grid size");
         };
         Operation(func);
-    }
-
-    TNATURAL Grid::GetMaxValue() const
-    {
-        if(GetNrOfRows() > GetNrOfColumns()){
-            return static_cast<TNATURAL>(GetNrOfRows());
-        }
-        else{
-            return static_cast<TNATURAL>(GetNrOfColumns());
-        }
     }
       
   }

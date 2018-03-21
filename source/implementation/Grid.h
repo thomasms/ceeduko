@@ -36,11 +36,14 @@ namespace toast { namespace imp
       
         void Operation(std::function<void(size_t row, size_t column)> func) const override;
         void Validate() const override;
-        const PTR<api::ICell>& GetCell(size_t row, size_t column) const override;
         
         inline const PTR<api::ICell>& operator()(size_t row, size_t column) const override
         {
-            return GetCell(row, column);
+#ifdef ASSERTIONS
+            assert(row < GetNrOfRows() );
+            assert(column < GetNrOfColumns() );
+#endif
+            return _cells[row][column];
         }
         
         inline void Clear() override
@@ -67,7 +70,9 @@ namespace toast { namespace imp
       
     private:
       void CreateGrid(size_t nr_of_rows, size_t nr_of_columns);
-      TNATURAL GetMaxValue() const;
+      TNATURAL GetMaxValue() const{
+          return static_cast<TNATURAL>(std::max(GetNrOfRows(), GetNrOfColumns()));
+      }
       
     private:
       std::vector< std::vector< PTR<api::ICell> > > _cells;

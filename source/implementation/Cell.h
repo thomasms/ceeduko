@@ -28,6 +28,7 @@ namespace toast { namespace imp
     {
     public:
         Cell();
+        Cell(TNATURAL value);
         ~Cell();
 
         inline TNATURAL operator()() const override{

@@ -50,16 +50,6 @@ namespace toast { namespace api
       */
       virtual void Operation(std::function<void(size_t row, size_t column)> func) const = 0;
       
-      /* @brief Returns a shared pointer to the cell given the row and column indices
-       *        in the grid. 
-       *        Note that indices are zero based.
-       *
-       * @param[in] row Is the row index on the grid, cannot exceed the number of rows - 1 and must be >= 0
-       * @param[in] column Is the column index on the grid, cannot exceed the number of columns - 1 and must be >= 0
-       * @return A constant shared pointer to the cell.
-       */
-      virtual const PTR<ICell>& GetCell(size_t row, size_t column) const = 0;
-      
       /* @brief Returns the number of the rows in the grid.
        *
        * @return The number of rows.

@@ -17,7 +17,7 @@
 namespace toast { namespace utils
   {
     using TVALUE = double;
-    using TNATURAL = size_t;
+    using TNATURAL = int;
 
     template<class T>
     using PTR = std::shared_ptr<T>;

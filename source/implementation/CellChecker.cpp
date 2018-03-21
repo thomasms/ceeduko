@@ -42,11 +42,10 @@ namespace toast { namespace imp
       return (!in_row && !in_column && !in_sub_grid);
     }
     
-    
     bool CellChecker::IsInRow(size_t row_index, size_t column_index, TNATURAL value) const
     {
-      for(size_t c=0;c<_grid->GetNrOfColumns();++c){
-        
+      for(size_t c=0;c<_grid->GetNrOfColumns();++c)
+      {
         // Ignore the cell in question
         if(c == column_index)continue;
         
@@ -90,15 +89,6 @@ namespace toast { namespace imp
         }
       }
       return false;
-    }
-    
-    bool CellChecker::CheckCell(PTR<api::ICell>& cell, TNATURAL value) const{
-      if((*cell) && (*cell)() == value ){
-        return true;
-      }
-      else{
-        return false;
-      }
     }
     
     std::pair<size_t,size_t> CellChecker::FindCellLocation(PTR<api::ICell>& cell) const

@@ -10,11 +10,14 @@
 
 namespace toast { namespace imp
 {
-    Cell::Cell()
+    Cell::Cell() : _value(k_unset_value)
     {
-      Clear();
     }
 
+    Cell::Cell(TNATURAL value) : _value(value)
+    {
+    }
+    
     Cell::~Cell()
     {
     }
