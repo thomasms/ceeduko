@@ -8,25 +8,25 @@
 #ifndef TOAST_SOLVER_FACTORY_H
 #define TOAST_SOLVER_FACTORY_H
 
-#include <memory>
-#include <vector>
-
+#include "Definitions.h"
 #include "Types.h"
 
 #include "IGrid.h"
 #include "ISolver.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace factory
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
+
     class SolverFactory
     {
     public:
       static const PTR<api::ISolver> CreateBacktrackingSolver(PTR<api::IGrid>& grid);
       
     };
-    
-  }
-}
+ 
+NAMESPACE_END //factory
+NAMESPACE_END //toast
+
 #endif //TOAST_SOLVER_FACTORY_H

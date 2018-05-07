@@ -14,8 +14,11 @@
 #include <string>
 #include <vector>
 
-namespace toast { namespace utils
-  {
+#include "Definitions.h"
+
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(utils)
+
     using TVALUE = double;
     using TNATURAL = int;
 
@@ -35,7 +38,7 @@ namespace toast { namespace utils
     template<typename Ret, typename T, typename... Args>
     using SETTER = Ret(T::*)(Args...);
 
-  }
-}
+NAMESPACE_END // utils
+NAMESPACE_END // toast
 
 #endif //TOAST_TYPES_H

@@ -9,14 +9,16 @@
 #ifndef TOAST_CELL_FACTORY_H
 #define TOAST_CELL_FACTORY_H
 
+#include "Definitions.h"
 #include "Types.h"
 
 #include "ICell.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace factory
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
+
   class CellFactory
   {
   public:
@@ -27,6 +29,7 @@ namespace toast { namespace factory
     static const std::vector< PTR<api::ICell> > CreateEmptyCellRow(size_t nr_of_cells);
   };
 
-}
-}
+NAMESPACE_END //factory
+NAMESPACE_END //toast
+
 #endif //TOAST_CELL_FACTORY_H

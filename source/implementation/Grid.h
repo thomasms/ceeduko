@@ -14,9 +14,9 @@
 #include <cmath>
 #include <vector>
 
-#include "Defs.h"
-#include "Types.h"
+#include "Definitions.h"
 #include "Exceptions.h"
+#include "Types.h"
 
 #include "CellFactory.h"
 #include "CellChecker.h"
@@ -24,10 +24,11 @@
 #include "ICell.h"
 #include "IGrid.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace imp
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     class Grid : public api::IGrid
     {
     public:
@@ -79,6 +80,7 @@ namespace toast { namespace imp
         
     };
     
-  }
-}
+NAMESPACE_END //imp
+NAMESPACE_END //toast
+
 #endif //TOAST_IMP_GRID_H

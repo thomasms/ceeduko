@@ -13,10 +13,11 @@
 
 #include "IGrid.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace api
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(api)
+
     /** @brief Interface for the solver
      *
      */
@@ -34,7 +35,7 @@ namespace toast { namespace api
       virtual bool Solve() = 0;
     };
     
-  }
-}
+NAMESPACE_END //api
+NAMESPACE_END //toast
 
 #endif //TOAST_API_ISOLVER_H

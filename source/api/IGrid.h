@@ -17,10 +17,11 @@
 #include "ICell.h"
 #include "IValidatable.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace api
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(api)
+
     /** @brief Interface for the grid object, the two dimensional
      *         object containing the cells.
      *
@@ -63,7 +64,7 @@ namespace toast { namespace api
       virtual size_t GetNrOfColumns() const = 0;
     };
     
-  }
-}
+NAMESPACE_END //api
+NAMESPACE_END //toast
 
 #endif //TOAST_API_IGRID_H

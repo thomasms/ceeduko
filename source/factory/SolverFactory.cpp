@@ -10,14 +10,14 @@
 
 #include "SolverFactory.h"
 
-namespace toast { namespace factory
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
     
     // The brute force backtracking solver
     const PTR<api::ISolver> SolverFactory::CreateBacktrackingSolver(PTR<api::IGrid>& grid)
     {
       return std::make_shared<imp::BacktrackingSolver>(grid);
     }
-    
-  }
-}
+
+NAMESPACE_END //factory
+NAMESPACE_END //toast

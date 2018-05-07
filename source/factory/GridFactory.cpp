@@ -10,8 +10,8 @@
 
 #include "GridFactory.h"
 
-namespace toast { namespace factory
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
     
     // Empty Square Grid
     const PTR<api::IGrid> GridFactory::CreateEmptySquareGrid(size_t size)
@@ -24,6 +24,6 @@ namespace toast { namespace factory
     {
       return std::make_shared<imp::Grid>(nr_of_rows,nr_of_columns);
     }
-        
-  }
-}
+
+NAMESPACE_END //factory
+NAMESPACE_END //toast

@@ -9,10 +9,11 @@
 #ifndef TOAST_API_ICLEARABLE_H
 #define TOAST_API_ICLEARABLE_H
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace api
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(api)
+
     /** @brief Interface for object that implements Clear.
      *
      *  Most objects in the API require an object to be reset or cleared,
@@ -29,7 +30,7 @@ namespace toast { namespace api
       virtual void Clear() = 0;
     };
     
-  }
-}
+NAMESPACE_END //api
+NAMESPACE_END //toast
 
 #endif //TOAST_API_ICLEARABLE_H

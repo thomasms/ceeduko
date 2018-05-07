@@ -13,15 +13,17 @@
 #include <string>
 #include <cctype>   
 
+#include "Definitions.h"
 #include "Types.h"
 #include "Exceptions.h"
 
 #include "ICell.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace imp
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     constexpr TNATURAL k_unset_value = UNDEFINED_INT;
 
     class Cell : public api::ICell
@@ -54,6 +56,7 @@ namespace toast { namespace imp
     
     };
     
-}
-}
+NAMESPACE_END //imp
+NAMESPACE_END //toast
+
 #endif //TOAST_IMP_CELL_H

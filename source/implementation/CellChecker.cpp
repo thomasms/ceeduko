@@ -8,8 +8,8 @@
 
 #include "CellChecker.h"
 
-namespace toast { namespace imp
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
     
     CellChecker::CellChecker(PTR<api::IGrid>& grid)
     :
@@ -103,6 +103,6 @@ namespace toast { namespace imp
       
       return r_and_c;
     }
-    
-  }
-}
+
+NAMESPACE_END //imp
+NAMESPACE_END //toast

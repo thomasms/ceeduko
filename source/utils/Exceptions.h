@@ -12,8 +12,9 @@
 #include <exception>
 #include <string>
 
-namespace toast { namespace utils
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(utils)
+
     class GeneralException : public std::exception
     {
         public:
@@ -82,8 +83,7 @@ namespace toast { namespace utils
             }
     };
     
-  }
-  
-}
+NAMESPACE_END // utils
+NAMESPACE_END // toast
 
 #endif //TOAST_EXCEPTIONS_H

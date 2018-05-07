@@ -8,9 +8,9 @@
 
 #include "Grid.h"
 
-namespace toast { namespace imp
-{
-    
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     Grid::Grid(size_t nr_of_rows, size_t nr_of_columns)
     {
         CreateGrid(nr_of_rows, nr_of_columns);
@@ -50,6 +50,6 @@ namespace toast { namespace imp
         };
         Operation(func);
     }
-      
-  }
-}
+    
+NAMESPACE_END //imp
+NAMESPACE_END //toast

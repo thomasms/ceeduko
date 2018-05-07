@@ -10,8 +10,8 @@
 
 #include "CellFactory.h"
 
-namespace toast { namespace factory
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
   
   // Empty Cell
   const PTR<api::ICell> CellFactory::CreateEmptyCell()
@@ -35,7 +35,7 @@ namespace toast { namespace factory
     
     return row;
   }
-  
-}
-}
+
+NAMESPACE_END //factory
+NAMESPACE_END //toast
 

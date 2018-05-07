@@ -12,16 +12,18 @@
 #include <cmath>
 #include <vector>
 
+#include "Definitions.h"
 #include "Exceptions.h"
 #include "Types.h"
 
 #include "ICell.h"
 #include "IGrid.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace imp
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     class CellChecker
     {
     public:
@@ -44,7 +46,8 @@ namespace toast { namespace imp
     private:
       PTR<api::IGrid>& _grid;
     };
-  }
-}
+    
+NAMESPACE_END //imp
+NAMESPACE_END //toast
 
 #endif //TOAST_IMP_CELL_CHECKER_H

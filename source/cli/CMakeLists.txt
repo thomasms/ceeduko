@@ -1,6 +1,5 @@
-
 set (CEEDUKO_EXE_NAME ceeduko)
-set (CEEDUKO_EXE_SOURCE ${PROGRAM_DIR}/main.cpp)
+set (CEEDUKO_EXE_SOURCE main.cpp)
 
 add_executable(${CEEDUKO_EXE_NAME}
                ${CEEDUKO_EXE_SOURCE}

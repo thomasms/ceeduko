@@ -11,6 +11,7 @@
 
 #include <fstream>
 
+#include "Definitions.h"
 #include "Exceptions.h"
 #include "Types.h"
 
@@ -18,8 +19,9 @@
 
 #include "IGrid.h"
 
-namespace toast { namespace io
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(io)
+
     void WriteToFile(std::string filename, const PTR<api::IGrid>& grid)
     {
       std::ofstream file(filename);
@@ -39,6 +41,8 @@ namespace toast { namespace io
       file >> grid;
       file.close();
     }
-  }
-}
+
+NAMESPACE_END //io
+NAMESPACE_END //toast
+
 #endif //TOAST_IO_FILE_IO_H

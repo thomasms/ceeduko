@@ -12,13 +12,16 @@
 #include <cmath>
 #include <vector>
 
-#include "CellChecker.h"
+#include "Definitions.h"
 #include "Exceptions.h"
+
+#include "CellChecker.h"
 
 #include "ISolver.h"
 
-namespace toast { namespace imp
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     class BacktrackingSolver : public api::ISolver
     {
     public:
@@ -43,7 +46,8 @@ namespace toast { namespace imp
       PTR<api::IGrid>& _grid;
       PTR<CellChecker> _cell_checker;
     };
-  }
-}
+
+NAMESPACE_END //imp
+NAMESPACE_END //toast
 
 #endif //TOAST_IMP_BACKTRACKING_SOLVER_H

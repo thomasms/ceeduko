@@ -8,8 +8,9 @@
 
 #include "Cell.h"
 
-namespace toast { namespace imp
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     Cell::Cell() : _value(k_unset_value)
     {
     }
@@ -27,5 +28,6 @@ namespace toast { namespace imp
       if((*this) && (*this)() <= 0)
         throw CellValidationException("Cell must have a positive value for defined values");
     }
-  }
-}
+
+NAMESPACE_END //imp
+NAMESPACE_END //toast

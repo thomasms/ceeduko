@@ -9,17 +9,16 @@
 #ifndef TOAST_GRID_FACTORY_H
 #define TOAST_GRID_FACTORY_H
 
-#include <memory>
-#include <vector>
-
+#include "Definitions.h"
 #include "Types.h"
 
 #include "IGrid.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace factory
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(factory)
+
     class GridFactory
     {
     public:
@@ -29,6 +28,7 @@ namespace toast { namespace factory
             
     };
     
-  }
-}
+NAMESPACE_END //factory
+NAMESPACE_END //toast
+
 #endif //TOAST_GRID_FACTORY_H

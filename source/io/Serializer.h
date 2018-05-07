@@ -16,16 +16,18 @@
 #include <sstream>
 #include <iostream>
 
+#include "Definitions.h"
 #include "Types.h"
 
 #include "GridFactory.h"
 
 #include "IGrid.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace io
-{
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(io)
+
     /*
      
      Needs some work but halfway there.
@@ -82,7 +84,8 @@ namespace toast { namespace io
         Deserialize<delimiter>(is, grid);
         return is;
     }
-  }
-}
+
+NAMESPACE_END //io
+NAMESPACE_END //toast
 
 #endif //TOAST_API_ISERIALIZABLE_H

@@ -8,8 +8,9 @@
 
 #include "BacktrackingSolver.h"
 
-namespace toast { namespace imp
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(imp)
+
     BacktrackingSolver::BacktrackingSolver(PTR<api::IGrid>& grid)
     :
     _grid(grid)
@@ -118,6 +119,6 @@ namespace toast { namespace imp
       if(ceil(sub_square_size) != sub_square_size)
         throw SolverException("This solver only supports square number dimensions, i.e. size of 4x4, 9x9, 16x16, etc");
     }
-    
-  }
-}
+
+NAMESPACE_END //imp
+NAMESPACE_END //toast

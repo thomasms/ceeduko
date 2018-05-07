@@ -11,15 +11,17 @@
 
 #include <iostream>
 
+#include "Definitions.h"
 #include "Types.h"
 
 #include "IClearable.h"
 #include "IValidatable.h"
 
-using namespace toast::utils;
+NAMESPACE_USING(toast::utils)
 
-namespace toast { namespace api
-  {
+NAMESPACE_BEGIN(toast)
+NAMESPACE_BEGIN(api)
+
     /** @brief Interface for the cell object, the basic constituent
      *        for the grid.
      */
@@ -48,8 +50,8 @@ namespace toast { namespace api
        */
       virtual operator bool() const = 0;
     };
-        
-  }
-}
+
+NAMESPACE_END //api
+NAMESPACE_END //toast
 
 #endif //TOAST_API_ICELL_H

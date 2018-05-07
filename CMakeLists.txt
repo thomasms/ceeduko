@@ -48,8 +48,7 @@ set (IMPLEMENTATION_DIR ${SOURCE_DIR_BASE}/implementation)
 set (IO_DIR ${SOURCE_DIR_BASE}/io)
 set (PY_DIR ${SOURCE_DIR_BASE}/py)
 set (UTILS_DIR ${SOURCE_DIR_BASE}/utils)
-
-set (PROGRAM_DIR ${SOURCE_DIR_BASE}/programs)
+set (CLI_DIR ${SOURCE_DIR_BASE}/cli)
 
 set (CEEDUKO_INCLUDES
     ${API_DIR}
