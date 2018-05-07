@@ -46,7 +46,7 @@ namespace toast { namespace imp
             cell->Validate();
             
             if((*cell) && ((*cell)() > GetMaxValue()))
-                throw GeneralException("Values cannot exceed the grid size");
+                throw GridValidationException("Values cannot exceed the grid size");
         };
         Operation(func);
     }

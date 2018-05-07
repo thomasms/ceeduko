@@ -15,7 +15,7 @@
 #include "catch.hpp"
 
 #include "Assertions.h"
-#include "GeneralException.h"
+#include "Exceptions.h"
 
 #include "CellTester.h"
 
@@ -49,7 +49,7 @@ namespace toast { namespace unittests
         
         //validate cell data
         std::function<void()> validate_func = std::bind(&api::ICell::Validate, _cell);
-        AssertExceptionMsg<void(),utils::GeneralException>(validate_func, _exception_msg);
+        AssertExceptionMsg<void(), utils::CellValidationException>(validate_func, _exception_msg);
       }
     private:
       std::string _exception_msg;

@@ -26,6 +26,9 @@ namespace toast { namespace unittests
         exception_thrown = true;
         REQUIRE(ex.what() == expected_msg);
       }
+      catch( ... ){
+        REQUIRE(false);
+      }
       REQUIRE(exception_thrown == true);
     }
   }

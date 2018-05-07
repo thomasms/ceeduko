@@ -14,7 +14,7 @@
 #include <cctype>   
 
 #include "Types.h"
-#include "GeneralException.h"
+#include "Exceptions.h"
 
 #include "ICell.h"
 

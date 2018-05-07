@@ -19,6 +19,5 @@ namespace toast { namespace factory
       return std::make_shared<imp::BacktrackingSolver>(grid);
     }
     
-    
   }
 }

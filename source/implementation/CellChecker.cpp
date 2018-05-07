@@ -6,8 +6,6 @@
 //  Copyright © 2017 Tom Stainer. All rights reserved.
 //
 
-#include "GeneralException.h"
-
 #include "CellChecker.h"
 
 namespace toast { namespace imp

@@ -111,12 +111,12 @@ namespace toast { namespace imp
     {
       //check the grid dimensions - for this solver it must be square and of square size i.e. 4, 9, 16, etc..
       if(_grid->GetNrOfRows() != _grid->GetNrOfColumns())
-        throw GeneralException("This solver only supports square grids");
+        throw SolverException("This solver only supports square grids");
       
       auto sub_square_size = sqrt(static_cast<TVALUE>(_grid->GetNrOfRows()));
       
       if(ceil(sub_square_size) != sub_square_size)
-        throw GeneralException("This solver only supports square number dimensions, i.e. size of 4x4, 9x9, 16x16, etc");
+        throw SolverException("This solver only supports square number dimensions, i.e. size of 4x4, 9x9, 16x16, etc");
     }
     
   }

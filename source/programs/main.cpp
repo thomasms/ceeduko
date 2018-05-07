@@ -10,7 +10,6 @@
 
 #include "GridFactory.h"
 #include "SolverFactory.h"
-#include "GeneralException.h"
 
 #include "Serializer.h"
 #include "FileIO.h"

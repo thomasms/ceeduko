@@ -16,7 +16,7 @@
 
 #include "Defs.h"
 #include "Types.h"
-#include "GeneralException.h"
+#include "Exceptions.h"
 
 #include "CellFactory.h"
 #include "CellChecker.h"

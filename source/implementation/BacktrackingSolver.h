@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "CellChecker.h"
-#include "GeneralException.h"
+#include "Exceptions.h"
 
 #include "ISolver.h"
 

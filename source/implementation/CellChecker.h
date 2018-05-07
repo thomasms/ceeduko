@@ -12,6 +12,7 @@
 #include <cmath>
 #include <vector>
 
+#include "Exceptions.h"
 #include "Types.h"
 
 #include "ICell.h"

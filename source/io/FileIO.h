@@ -11,7 +11,7 @@
 
 #include <fstream>
 
-#include "GeneralException.h"
+#include "Exceptions.h"
 #include "Types.h"
 
 #include "Serializer.h"
