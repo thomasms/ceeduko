@@ -31,6 +31,7 @@ addons:
 branches:
   only:
   - master
+  - dev
 
 script:
   - cd ${TRAVIS_BUILD_DIR}
