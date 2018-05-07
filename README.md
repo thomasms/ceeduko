@@ -2,8 +2,8 @@
 
 ### A sudoku solver written in C++
 
-[![Build Status](https://travis-ci.org/thomasms/ceeduko.svg?branch=master)](https://travis-ci.org/thomasms/ceeduko)
-[![codecov](https://codecov.io/gh/thomasms/ceeduko/branch/master/graph/badge.svg)](https://codecov.io/gh/thomasms/ceeduko)
+[![Build Status](https://travis-ci.org/thomasms/ceeduko.svg?branch=dev)](https://travis-ci.org/thomasms/ceeduko)
+[![codecov](https://codecov.io/gh/thomasms/ceeduko/branch/dev/graph/badge.svg)](https://codecov.io/gh/thomasms/ceeduko)
 
 - [About](#about)
 - [Status](#status)
