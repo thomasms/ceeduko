@@ -1,5 +1,6 @@
 *.xcodeproj
 *.xcworkspace
+.vscode
 ~
 
 .DS_Store
