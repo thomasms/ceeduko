@@ -14,7 +14,6 @@
 
 #include "Definitions.h"
 #include "Exceptions.h"
-
 #include "CellChecker.h"
 
 #include "ISolver.h"
@@ -25,17 +24,24 @@ NAMESPACE_BEGIN(imp)
     class BacktrackingSolver : public api::ISolver
     {
     public:
-      BacktrackingSolver(PTR<api::IGrid>& grid);
-      ~BacktrackingSolver();
+      BacktrackingSolver(PTR<api::IGrid>& grid) : _grid(grid)
+      {
+        // object for checking if a cell value is ok in that grid location
+        _cell_checker = std::make_shared<CellChecker>(_grid);
+      }
+      
+      ~BacktrackingSolver()
+      {
+      }
       
       // Returns false if no solution exists
       //
       // Throws GeneralException if the grid dimensions are incompatible
-      virtual bool Solve() override;
+      bool Solve() override;
       
     private:
       bool VerifyGrid() const;
-      bool Loop();
+      bool FindNext();
       bool Initialise();
       
       // throws exception on incorrect grid

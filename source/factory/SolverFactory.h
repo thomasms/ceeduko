@@ -19,13 +19,9 @@ NAMESPACE_USING(toast::utils)
 NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(factory)
 
-    class SolverFactory
-    {
-    public:
-      static const PTR<api::ISolver> CreateBacktrackingSolver(PTR<api::IGrid>& grid);
-      
-    };
- 
+    const PTR<api::ISolver> CreateBacktrackingSolver(PTR<api::IGrid>& grid);
+    const PTR<api::ISolver> CreateImprovedBacktrackingSolver(PTR<api::IGrid>& grid);
+       
 NAMESPACE_END //factory
 NAMESPACE_END //toast
 

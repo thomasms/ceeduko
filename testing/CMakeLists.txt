@@ -9,7 +9,8 @@ set (UNITTEST_SOURCE
     ${UNITTEST_DIR}/CellUnitTest.cpp
     ${UNITTEST_DIR}/GridUnitTests.cpp
     ${UNITTEST_DIR}/UnitTestUtils.cpp
-    ${IMPLEMENTATION_DIR}/BacktrackingSolver.cpp
+    ${IMPLEMENTATION_DIR}/solvers/BacktrackingSolver.cpp
+    ${IMPLEMENTATION_DIR}/solvers/ImprovedBacktrackingSolver.cpp
     ${IMPLEMENTATION_DIR}/Cell.cpp
     ${IMPLEMENTATION_DIR}/CellChecker.cpp
     ${IMPLEMENTATION_DIR}/Grid.cpp

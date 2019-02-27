@@ -19,15 +19,11 @@ NAMESPACE_USING(toast::utils)
 NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(factory)
 
-  class CellFactory
-  {
-  public:
-    static const PTR<api::ICell> CreateEmptyCell();
-    
-    static const PTR<api::ICell> CreateValueCell(TNATURAL value);
-    
-    static const std::vector< PTR<api::ICell> > CreateEmptyCellRow(size_t nr_of_cells);
-  };
+  const PTR<api::ICell> CreateEmptyCell();
+  
+  const PTR<api::ICell> CreateValueCell(TNATURAL value);
+  
+  const std::vector< PTR<api::ICell> > CreateEmptyCellRow(size_t nr_of_cells);
 
 NAMESPACE_END //factory
 NAMESPACE_END //toast

@@ -59,7 +59,7 @@ NAMESPACE_BEGIN(io)
         int rows = 0;
         int columns = 0;
         stream >> rows >> columns;
-        grid = factory::GridFactory::CreateEmptySquareGrid(rows);
+        grid = factory::CreateEmptySquareGrid(rows);
         
         auto func = [&](size_t r, size_t c){
             auto cell = (*grid)(r,c);

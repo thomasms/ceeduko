@@ -39,14 +39,14 @@ namespace toast { namespace unittests
       virtual void InitialiseDefault() override
       {
         REQUIRE(_cell == nullptr);
-        _cell = factory::CellFactory::CreateEmptyCell();
+        _cell = factory::CreateEmptyCell();
         REQUIRE(_cell != nullptr);
       }
       
       virtual void Initialise() override
       {
         REQUIRE(_cell == nullptr);
-        _cell = factory::CellFactory::CreateValueCell(_value);
+        _cell = factory::CreateValueCell(_value);
         REQUIRE(_cell != nullptr);
       }
       

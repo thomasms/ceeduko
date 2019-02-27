@@ -28,7 +28,7 @@ namespace toast { namespace unittests
      */
     const PTR<api::IGrid> GridTestFactory::CreateEmptySquareNineGrid()
     {
-      return factory::GridFactory::CreateEmptySquareGrid(9);
+      return factory::CreateEmptySquareGrid(9);
     }
     
     /*
@@ -46,7 +46,7 @@ namespace toast { namespace unittests
      */    
     const PTR<api::IGrid> GridTestFactory::CreatePartialFilledSquareNineGrid()
     {
-      auto grid = factory::GridFactory::CreateEmptySquareGrid(9);
+      auto grid = factory::CreateEmptySquareGrid(9);
       (*(*grid)(0,0))(5);
       (*(*grid)(0,4))(1);
       (*(*grid)(2,0))(4);

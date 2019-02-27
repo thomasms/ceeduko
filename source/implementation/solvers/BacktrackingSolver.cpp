@@ -10,28 +10,15 @@
 
 NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(imp)
-
-    BacktrackingSolver::BacktrackingSolver(PTR<api::IGrid>& grid)
-    :
-    _grid(grid)
-    {
-      // object for checking if a cell value is ok in that grid location
-      _cell_checker = std::make_shared<CellChecker>(_grid);
-    }
-    
-    BacktrackingSolver::~BacktrackingSolver()
-    {
-    }
     
     bool BacktrackingSolver::Solve()
     {
       bool result = false;
       if(Initialise())
-        result = Loop();
+        result = FindNext();
       
       return result;
     }
-    
     
     bool BacktrackingSolver::VerifyGrid() const
     {
@@ -47,13 +34,15 @@ NAMESPACE_BEGIN(imp)
       return result;
     }
     
-    bool BacktrackingSolver::Loop()
+    bool BacktrackingSolver::FindNext()
     {
       // Get the next empty cell
       PTR<api::ICell> next_cell = nullptr;
-      for(auto cell: _empty_cells){
-        if(!(*cell))
-          next_cell = cell;
+      for(int i=0; i<static_cast<int>(_empty_cells.size());++i){
+        if(!(*_empty_cells[i])){
+          next_cell = _empty_cells[i];
+          break;
+        }
       }
       
       // If no empty cell remains, then we have solved it!
@@ -61,17 +50,14 @@ NAMESPACE_BEGIN(imp)
         return true;
       
       // loop over all possible numbers
-      const TNATURAL start_number = 1;
-      const TNATURAL end_number = static_cast<TNATURAL>(_grid->GetNrOfColumns());
-      
-      for(TNATURAL value=start_number;value<=end_number;++value){
+      for(TNATURAL value=1; value<=static_cast<TNATURAL>(_grid->GetNrOfColumns()); ++value){
         if(_cell_checker->IsOk(next_cell, value)){
           
           // try the value
           (*next_cell)(value);
           
           // recursively check if ok
-          if(Loop()){
+          if(FindNext()){
             return VerifyGrid();
           }
           

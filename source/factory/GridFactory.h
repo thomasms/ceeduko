@@ -19,14 +19,9 @@ NAMESPACE_USING(toast::utils)
 NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(factory)
 
-    class GridFactory
-    {
-    public:
-      static const PTR<api::IGrid> CreateEmptySquareGrid(size_t size);
-      
-      static const PTR<api::IGrid> CreateEmptyGrid(size_t nr_of_rows, size_t nr_of_columns);
-            
-    };
+  const PTR<api::IGrid> CreateEmptySquareGrid(size_t size);
+  
+  const PTR<api::IGrid> CreateEmptyGrid(size_t nr_of_rows, size_t nr_of_columns);
     
 NAMESPACE_END //factory
 NAMESPACE_END //toast

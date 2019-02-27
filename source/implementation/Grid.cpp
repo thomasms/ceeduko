@@ -24,7 +24,7 @@ NAMESPACE_BEGIN(imp)
     {
         _cells.resize(0);
         for(size_t i=0;i<nr_of_rows;++i){
-            _cells.push_back(factory::CellFactory::CreateEmptyCellRow(nr_of_columns));
+            _cells.push_back(factory::CreateEmptyCellRow(nr_of_columns));
         }
     }
     

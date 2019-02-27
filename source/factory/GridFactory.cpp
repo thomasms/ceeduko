@@ -14,13 +14,13 @@ NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(factory)
     
     // Empty Square Grid
-    const PTR<api::IGrid> GridFactory::CreateEmptySquareGrid(size_t size)
+    const PTR<api::IGrid> CreateEmptySquareGrid(size_t size)
     {
       return std::make_shared<imp::Grid>(size,size);
     }
     
     // Empty Rectangluar Grid
-    const PTR<api::IGrid> GridFactory::CreateEmptyGrid(size_t nr_of_rows, size_t nr_of_columns)
+    const PTR<api::IGrid> CreateEmptyGrid(size_t nr_of_rows, size_t nr_of_columns)
     {
       return std::make_shared<imp::Grid>(nr_of_rows,nr_of_columns);
     }

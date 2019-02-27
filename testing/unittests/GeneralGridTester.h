@@ -49,7 +49,7 @@ namespace toast { namespace unittests
       void Initialise() override
       {
         REQUIRE(_grid == nullptr);
-        _grid = factory::GridFactory::CreateEmptyGrid(_nr_of_rows,_nr_of_columns);
+        _grid = factory::CreateEmptyGrid(_nr_of_rows,_nr_of_columns);
         REQUIRE(_grid != nullptr);
         REQUIRE(_grid->GetNrOfRows() == _nr_of_rows);
         REQUIRE(_grid->GetNrOfColumns() == _nr_of_columns);

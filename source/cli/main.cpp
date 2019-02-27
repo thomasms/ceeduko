@@ -34,8 +34,8 @@ int main(int argc, const char * argv[])
         GetCmdLineArgs(argc, argv);
 
         // Create an empty grid and the solver
-        auto grid = factory::GridFactory::CreateEmptySquareGrid(0);
-        auto solver = factory::SolverFactory::CreateBacktrackingSolver(grid);
+        auto grid = factory::CreateEmptySquareGrid(0);
+        auto solver = factory::CreateImprovedBacktrackingSolver(grid);
         
         // Read in the grid from file
         io::ReadFromFile(filename_unsolved, grid);

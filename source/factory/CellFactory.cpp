@@ -14,19 +14,19 @@ NAMESPACE_BEGIN(toast)
 NAMESPACE_BEGIN(factory)
   
   // Empty Cell
-  const PTR<api::ICell> CellFactory::CreateEmptyCell()
+  const PTR<api::ICell> CreateEmptyCell()
   {
       return std::make_shared<imp::Cell>();
   }
   
   // Valued Cell
-  const PTR<api::ICell> CellFactory::CreateValueCell(TNATURAL value)
+  const PTR<api::ICell> CreateValueCell(TNATURAL value)
   {
       return std::make_shared<imp::Cell>(value);
   }
   
   // Empty Cell Row
-  const std::vector< PTR<api::ICell> > CellFactory::CreateEmptyCellRow(size_t nr_of_cells){
+  const std::vector< PTR<api::ICell> > CreateEmptyCellRow(size_t nr_of_cells){
     std::vector< PTR<api::ICell>> row;
     
     for(size_t i=0; i<nr_of_cells; ++i){

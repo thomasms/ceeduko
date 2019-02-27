@@ -39,7 +39,7 @@ NAMESPACE_BEGIN(imp)
       bool IsInSubGrid(size_t row_index, size_t column_index, TNATURAL value) const;
       std::pair<size_t,size_t> FindCellLocation(PTR<api::ICell>& cell) const;
       
-      inline bool CheckCell(PTR<api::ICell>& cell, TNATURAL value) const{
+      inline bool CheckCell(const PTR<api::ICell>& cell, TNATURAL value) const{
           return ((*cell) && (*cell)() == value );
       }
         
